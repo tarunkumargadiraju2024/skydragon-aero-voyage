@@ -8,24 +8,21 @@ const directors = [
     role: "Corporate Captain",
     motto: "Flying dreams, one charter at a time.",
     bio: "With over 16 years of experience as a corporate captain, Capt. Anirudh Duvuru embodies calm command in the cockpit. His journey through thousands of flying hours across global skies has shaped him into a trusted leader known for delivering seamless, safe, and luxurious travel experiences for high-profile clients and corporate elites.",
-    initials: "AD",
-    icon: "👨‍✈️"
+    initials: "AD"
   },
   {
     name: "Siva Kranthi Kumar",
     role: "Head of Aircraft Operations",
     motto: "Efficiency in the skies begins on the ground.",
     bio: "With a track record of 14 years in aircraft operations, Siva Kranthi ensures every flight is flawlessly coordinated from hangar to horizon. From pre-flight checks to regulatory compliance, his meticulous planning and operational insight are key to maintaining SkyDragon's reputation for on-time excellence.",
-    initials: "SK",
-    icon: "🧑‍💼"
+    initials: "SK"
   },
   {
     name: "Vijay Prakash",
     role: "Chief of Maintenance Engineering",
     motto: "Where engineering meets trust.",
     bio: "Vijay Prakash brings 20 years of hands-on experience in aircraft maintenance, driven by a passion for precision and safety. From major overhauls to routine inspections, he leads a team that treats every aircraft like a work of art — because your safety is our first-class priority.",
-    initials: "VP",
-    icon: "🧑‍🔧"
+    initials: "VP"
   }
 ];
 
@@ -66,14 +63,11 @@ const AboutSection = () => {
               <Card className="w-full max-w-2xl bg-white/80 backdrop-blur-sm hover-lift border-t-4 border-t-skyblue mb-8">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Avatar className="h-20 w-20 border-2 border-skyblue">
-                        <AvatarFallback className="bg-brand-blue text-white text-xl">
-                          {director.initials}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="text-4xl">{director.icon}</span>
-                    </div>
+                    <Avatar className="h-20 w-20 border-2 border-skyblue mb-4">
+                      <AvatarFallback className="bg-brand-blue text-white text-xl">
+                        {director.initials}
+                      </AvatarFallback>
+                    </Avatar>
                     <h4 className="text-2xl font-semibold text-brand-blue">
                       {director.name}
                     </h4>
