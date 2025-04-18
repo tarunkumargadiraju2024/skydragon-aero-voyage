@@ -79,7 +79,12 @@ const fleetCategories = [
         name: "Embraer Legacy 600/650",
         passengers: "13",
         range: "3,900 nm",
-        description: "Spacious cabin with intercontinental range capabilities."
+        description: "Spacious cabin with intercontinental range capabilities.",
+        images: [
+          "/lovable-uploads/09d7da22-cb6e-4cad-9007-acf56c03750c.png",
+          "/lovable-uploads/c020cff4-2baf-4fb0-84e5-88864d975dd6.png",
+          "/lovable-uploads/80395ba9-42d2-4670-96e9-41f6ad842f22.png"
+        ]
       },
       {
         name: "Bombardier Challenger 605",
