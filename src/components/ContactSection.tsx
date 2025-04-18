@@ -1,4 +1,3 @@
-
 import { Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,12 +7,11 @@ const contactInfo = [
     icon: <Phone className="h-6 w-6 text-skyblue" />,
     title: "Contact",
     content: [
-      "+91 9493066511",
       "+91 9533490539", 
       "+91 9848274255",
       "Email: ops@skydragonaero.com"
     ],
-    action: "tel:+919493066511",
+    action: "tel:+919533490539",
   },
   {
     icon: <MapPin className="h-6 w-6 text-skyblue" />,
