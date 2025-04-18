@@ -39,19 +39,42 @@ const QuoteFormSection = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      console.log(values);
-      setIsSubmitting(false);
+    
+    try {
+      // Replace 'YOUR_WEBHOOK_URL' with your actual webhook URL from Zapier
+      const webhookUrl = "YOUR_WEBHOOK_URL";
+      
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors", // Handle CORS issues
+        body: JSON.stringify({
+          ...values,
+          timestamp: new Date().toISOString(),
+          source: window.location.origin
+        }),
+      });
+
       setIsSubmitted(true);
       toast({
         title: "Quote request submitted",
         description: "We'll be in touch with you shortly.",
       });
       form.reset();
-    }, 1500);
+    } catch (error) {
+      console.error("Error sending form:", error);
+      toast({
+        title: "Error",
+        description: "There was a problem submitting your request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
