@@ -121,7 +121,12 @@ const fleetCategories = [
         name: "Bombardier Global 5000/6000/7500",
         passengers: "13-18",
         range: "7,700 nm",
-        description: "Ultimate luxury for long-range travel with multiple living spaces."
+        description: "Ultimate luxury for long-range travel with multiple living spaces.",
+        images: [
+          "/lovable-uploads/7492c68f-4fa5-48a6-a9e6-197057ff0dde.png",
+          "/lovable-uploads/f5ed9461-fb3d-4312-9bc0-8ddc85fed2f2.png",
+          "/lovable-uploads/b07c66fb-7584-4ec2-84b3-fb40b5376005.png"
+        ]
       },
       {
         name: "Gulfstream G450/550",
