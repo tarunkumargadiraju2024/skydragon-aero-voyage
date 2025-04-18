@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const contactInfo = [
   {
     icon: <Phone className="h-6 w-6 text-skyblue" />,
-    title: "Operations",
+    title: "Contact",
     content: [
       "+91 9493066511",
       "+91 9533490539", 
