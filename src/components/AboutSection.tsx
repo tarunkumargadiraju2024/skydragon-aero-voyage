@@ -1,28 +1,29 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 
 const directors = [
   {
-    name: "Capt. Anirudh Duvuru",
-    role: "Corporate Captain",
+    name: "Capt. Anirudh Duvvuru",
+    role: "Captain",
     motto: "Flying dreams, one charter at a time.",
     bio: "With over 16 years of experience as a corporate captain, Capt. Anirudh Duvuru embodies calm command in the cockpit. His journey through thousands of flying hours across global skies has shaped him into a trusted leader known for delivering seamless, safe, and luxurious travel experiences for high-profile clients and corporate elites.",
     initials: "AD"
   },
   {
-    name: "Siva Kranthi Kumar",
-    role: "Head of Aircraft Operations",
+    name: "Siva Kranthi Kumar Chekuri",
+    role: "Operations & Technical",
     motto: "Efficiency in the skies begins on the ground.",
     bio: "With a track record of 14 years in aircraft operations, Siva Kranthi ensures every flight is flawlessly coordinated from hangar to horizon. From pre-flight checks to regulatory compliance, his meticulous planning and operational insight are key to maintaining SkyDragon's reputation for on-time excellence.",
     initials: "SK"
   },
   {
-    name: "Vijay Prakash",
+    name: "Vijay",
     role: "Chief of Maintenance Engineering",
     motto: "Where engineering meets trust.",
     bio: "Vijay Prakash brings 20 years of hands-on experience in aircraft maintenance, driven by a passion for precision and safety. From major overhauls to routine inspections, he leads a team that treats every aircraft like a work of art — because your safety is our first-class priority.",
-    initials: "VP"
+    initials: "V"
   }
 ];
 
