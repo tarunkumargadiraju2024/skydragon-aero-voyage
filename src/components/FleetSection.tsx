@@ -90,7 +90,12 @@ const fleetCategories = [
         name: "Bombardier Challenger 605",
         passengers: "10-12",
         range: "4,000 nm",
-        description: "Premium comfort with outstanding performance."
+        description: "Premium comfort with outstanding performance.",
+        images: [
+          "/lovable-uploads/deebb1b3-01ad-49cb-ac3a-bf2126094d19.png",
+          "/lovable-uploads/a57ab5f7-4ff7-4848-a315-91014bec73df.png",
+          "/lovable-uploads/9628de38-bd0b-4720-942e-f8df00d4c43f.png"
+        ]
       },
       {
         name: "Hawker 4000",
