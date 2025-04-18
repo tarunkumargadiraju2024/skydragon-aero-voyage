@@ -35,7 +35,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-white/20 text-center text-white/60 text-sm">
           <p className="max-w-2xl mx-auto">
-            "We're not just flying planes, we're delivering peace of mind. Every journey with SkyDragon Aero is a promise of safety, comfort, and care."
+            Contact Us: +1 (888) 555-AERO | info@skydragonaero.com
           </p>
         </div>
       </div>
@@ -44,4 +44,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
