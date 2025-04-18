@@ -1,4 +1,3 @@
-
 import { Heart } from "lucide-react";
 
 const Footer = () => {
@@ -28,7 +27,7 @@ const Footer = () => {
               Crafted with <Heart className="h-4 w-4 text-red-400 mx-1 inline" /> for exceptional journeys
             </p>
             <p className="text-white/70 text-sm mt-1">
-              &copy; {currentYear} SkyDragon Aero Pvt. Ltd. All rights reserved.
+              &copy; {currentYear} SkyDragon Aero Pvt.Ltd. All rights reserved.
             </p>
           </div>
         </div>
