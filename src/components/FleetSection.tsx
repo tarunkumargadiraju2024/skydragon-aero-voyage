@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import FleetImageGallery from "./FleetImageGallery";
 
 const fleetCategories = [
   {
@@ -10,7 +11,11 @@ const fleetCategories = [
         name: "Cessna Citation CJ2",
         passengers: "6",
         range: "1,781 nm",
-        description: "Perfect balance of efficiency and comfort for short to medium-range trips."
+        description: "Perfect balance of efficiency and comfort for short to medium-range trips.",
+        images: [
+          "/lovable-uploads/ab8b7f08-ef9f-44a5-8ffb-c1177471ad4f.png",
+          "/lovable-uploads/bef91858-b212-42b3-a5b6-0b8f12b87036.png"
+        ]
       },
       {
         name: "Beechcraft King Air 200/250",
@@ -138,24 +143,26 @@ const FleetSection = () => {
             <TabsContent key={category.id} value={category.id} className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.models.map((model, index) => (
-                  <Card key={index} className="bg-cloud-light hover-lift border-t-4 border-t-skyblue overflow-hidden">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-xl text-brand-blue">{model.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-                        <div className="bg-white p-3 rounded-lg shadow-sm">
-                          <p className="text-gray-500 mb-1">Passengers</p>
-                          <p className="font-semibold text-skyblue-dark">{model.passengers}</p>
+                  <FleetImageGallery key={index} model={model}>
+                    <Card className="bg-cloud-light hover-lift border-t-4 border-t-skyblue overflow-hidden cursor-pointer">
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-xl text-brand-blue">{model.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                          <div className="bg-white p-3 rounded-lg shadow-sm">
+                            <p className="text-gray-500 mb-1">Passengers</p>
+                            <p className="font-semibold text-skyblue-dark">{model.passengers}</p>
+                          </div>
+                          <div className="bg-white p-3 rounded-lg shadow-sm">
+                            <p className="text-gray-500 mb-1">Range</p>
+                            <p className="font-semibold text-skyblue-dark">{model.range}</p>
+                          </div>
                         </div>
-                        <div className="bg-white p-3 rounded-lg shadow-sm">
-                          <p className="text-gray-500 mb-1">Range</p>
-                          <p className="font-semibold text-skyblue-dark">{model.range}</p>
-                        </div>
-                      </div>
-                      <p className="text-gray-600">{model.description}</p>
-                    </CardContent>
-                  </Card>
+                        <p className="text-gray-600">{model.description}</p>
+                      </CardContent>
+                    </Card>
+                  </FleetImageGallery>
                 ))}
               </div>
             </TabsContent>
