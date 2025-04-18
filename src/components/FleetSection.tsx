@@ -21,7 +21,11 @@ const fleetCategories = [
         name: "Beechcraft King Air 200/250",
         passengers: "6",
         range: "1,720 nm",
-        description: "Versatile turboprop offering excellent performance and reliability."
+        description: "Versatile turboprop offering excellent performance and reliability.",
+        images: [
+          "/lovable-uploads/07c1d6b9-e132-4bce-899f-7af5d72eb44d.png",
+          "/lovable-uploads/f976091d-646a-464d-b928-fe2b285c3f36.png"
+        ]
       }
     ]
   },
