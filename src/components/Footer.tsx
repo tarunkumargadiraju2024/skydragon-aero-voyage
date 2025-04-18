@@ -16,7 +16,7 @@ const Footer = () => {
             />
             <div>
               <h3 className="font-bold text-xl">
-                <span className="text-[#005190]">Sky</span>
+                <span className="text-[#0068C1]">Sky</span>
                 <span className="text-brand-red">Dragon</span> Aero
               </h3>
               <p className="text-white/70 text-sm">Elevating your journey since 2017</p>
@@ -44,3 +44,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
