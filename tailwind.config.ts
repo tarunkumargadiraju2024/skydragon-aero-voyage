@@ -17,6 +17,10 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		fontFamily: {
+			sans: ["Montserrat", "sans-serif"],
+			serif: ["Playfair Display", "serif"],
+		},
 		extend: {
 			colors: {
 				border: 'hsl(var(--border))',
@@ -51,6 +55,26 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				// SkyDragon Aero custom colors
+				skyblue: {
+					light: '#D3E4FD',
+					DEFAULT: '#33C3F0',
+					dark: '#1E88E5'
+				},
+				gold: {
+					light: '#F9F3E3',
+					DEFAULT: '#D4AF37',
+					dark: '#B8860B'
+				},
+				cloud: {
+					DEFAULT: '#FFFFFF',
+					light: '#F3F3F3',
+					dark: '#E1E1E1'
+				},
+				brand: {
+					blue: '#004B8D',  // The deep blue from the logo
+					red: '#C41E3A'    // For accent and dragon icon
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
