@@ -63,7 +63,11 @@ const fleetCategories = [
         name: "Bombardier Learjet 45",
         passengers: "8",
         range: "2,000 nm",
-        description: "Classic design with modern amenities and reliability."
+        description: "Classic design with modern amenities and reliability.",
+        images: [
+          "/lovable-uploads/f617f2ee-a42d-43f7-9225-7238af904923.png",
+          "/lovable-uploads/2fdb183c-f043-4a2f-9940-4948a7d374af.png"
+        ]
       }
     ]
   },
