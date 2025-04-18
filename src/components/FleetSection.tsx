@@ -112,7 +112,12 @@ const fleetCategories = [
         name: "Gulfstream G200",
         passengers: "8",
         range: "3,400 nm",
-        description: "Excellent range with spacious stand-up cabin."
+        description: "Excellent range with spacious stand-up cabin.",
+        images: [
+          "/lovable-uploads/40a1d6c2-48d2-479c-871c-7002dabddf6f.png",
+          "/lovable-uploads/fdcf945a-ed5f-40cc-866b-1db5a51432c4.png",
+          "/lovable-uploads/2253403c-c366-41ba-98cf-964ab23c0c62.png"
+        ]
       },
       {
         name: "Gulfstream G150",
