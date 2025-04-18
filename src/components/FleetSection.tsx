@@ -186,12 +186,12 @@ const FleetSection = () => {
         </p>
 
         <Tabs defaultValue="light" className="w-full mt-8">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
+          <TabsList className="flex flex-nowrap overflow-x-auto md:grid w-full md:grid-cols-4 mb-8 gap-2 p-1">
             {fleetCategories.map((category) => (
               <TabsTrigger 
                 key={category.id} 
                 value={category.id}
-                className="data-[state=active]:bg-skyblue data-[state=active]:text-white"
+                className="whitespace-nowrap flex-shrink-0 data-[state=active]:bg-skyblue data-[state=active]:text-white px-6"
               >
                 <span>{category.name}</span>
               </TabsTrigger>
@@ -203,7 +203,7 @@ const FleetSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.models.map((model, index) => (
                   <FleetImageGallery key={index} model={model}>
-                    <Card className="bg-cloud-light hover-lift border-t-4 border-t-skyblue overflow-hidden cursor-pointer">
+                    <Card className="h-full bg-cloud-light hover-lift border-t-4 border-t-skyblue overflow-hidden cursor-pointer">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-xl text-brand-blue">{model.name}</CardTitle>
                       </CardHeader>
