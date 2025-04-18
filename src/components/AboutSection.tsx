@@ -22,7 +22,7 @@ const directors = [
     name: "Vijay",
     role: "Chief of Maintenance Engineering",
     motto: "Where engineering meets trust.",
-    bio: "Vijay Prakash brings 20 years of hands-on experience in aircraft maintenance, driven by a passion for precision and safety. From major overhauls to routine inspections, he leads a team that treats every aircraft like a work of art — because your safety is our first-class priority.",
+    bio: "Vijay brings 20 years of hands-on experience in aircraft maintenance, driven by a passion for precision and safety. From major overhauls to routine inspections, he leads a team that treats every aircraft like a work of art — because your safety is our first-class priority.",
     initials: "V"
   }
 ];
