@@ -47,7 +47,11 @@ const fleetCategories = [
         name: "Beechcraft Hawker 800/850/900",
         passengers: "7-8",
         range: "2,900 nm",
-        description: "Exceptional comfort and range in the midsize category."
+        description: "Exceptional comfort and range in the midsize category.",
+        images: [
+          "/lovable-uploads/48067916-d682-47fd-9d9f-115939643a31.png",
+          "/lovable-uploads/3837fbe1-9d47-412f-b5db-626752b6ceb3.png"
+        ]
       },
       {
         name: "Cessna Citation XLS+",
