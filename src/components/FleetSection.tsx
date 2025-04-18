@@ -106,7 +106,11 @@ const fleetCategories = [
         name: "Hawker 4000",
         passengers: "8",
         range: "3,280 nm",
-        description: "Advanced composite construction with superior comfort."
+        description: "Advanced composite construction with superior comfort.",
+        images: [
+          "/lovable-uploads/840dad07-e9d9-43ac-a6dd-9789c20e1cd5.png",
+          "/lovable-uploads/f25caf50-85cf-4de0-b920-0acf21e03c9c.png"
+        ]
       },
       {
         name: "Gulfstream G200",
