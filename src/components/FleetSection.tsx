@@ -127,7 +127,12 @@ const fleetCategories = [
         name: "Gulfstream G450/550",
         passengers: "13-18",
         range: "6,750 nm",
-        description: "Exceptional performance with renowned cabin experience."
+        description: "Exceptional performance with renowned cabin experience.",
+        images: [
+          "/lovable-uploads/b286420c-9b2d-4a8f-84fb-10e5f3fe0ce3.png",
+          "/lovable-uploads/6750f089-756e-421a-86ca-3982b8384622.png",
+          "/lovable-uploads/0ddac5c4-d9aa-4300-8dea-dcc11573ff94.png"
+        ]
       }
     ]
   }
