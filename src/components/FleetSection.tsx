@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plane, PlaneTakeoff, Propeller, Rocket } from "lucide-react";
+import { Plane, PlaneTakeoff, CircleDashed, Rocket } from "lucide-react";
 
 const fleetCategories = [
   {
@@ -57,7 +57,7 @@ const fleetCategories = [
   {
     id: "supermid",
     name: "Super Mid Jets",
-    icon: <Propeller className="h-5 w-5" />,
+    icon: <CircleDashed className="h-5 w-5" />,
     models: [
       {
         name: "Embraer Legacy 600/650",
