@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plane, PlaneTakeoff, Plane2, JetTakeoff } from "lucide-react";
+import { Plane, PlaneTakeoff, Propeller, Rocket } from "lucide-react";
 
 const fleetCategories = [
   {
@@ -57,7 +57,7 @@ const fleetCategories = [
   {
     id: "supermid",
     name: "Super Mid Jets",
-    icon: <Plane2 className="h-5 w-5" />,
+    icon: <Propeller className="h-5 w-5" />,
     models: [
       {
         name: "Embraer Legacy 600/650",
@@ -100,7 +100,7 @@ const fleetCategories = [
   {
     id: "large",
     name: "Large Jets",
-    icon: <JetTakeoff className="h-5 w-5" />,
+    icon: <Rocket className="h-5 w-5" />,
     models: [
       {
         name: "Bombardier Global 5000/6000/7500",
