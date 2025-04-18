@@ -18,7 +18,7 @@ const HeroSection = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center" 
           style={{ 
-            backgroundImage: "url('/lovable-uploads/810fd7eb-ddb0-443c-a26e-ea037c44c0a8.png')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80')",
             filter: "brightness(0.8)"
           }}
         ></div>
@@ -51,4 +51,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
