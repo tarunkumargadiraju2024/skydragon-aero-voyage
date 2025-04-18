@@ -22,7 +22,7 @@ const directors = [
 const AboutSection = () => {
   return (
     <section id="about" className="section-padding sky-gradient">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <h2 className="section-title text-brand-blue">About Us</h2>
         <p className="section-subtitle">
           More than just charters — we craft experiences.
@@ -46,14 +46,14 @@ const AboutSection = () => {
           </div>
 
           <div className="col-span-1 md:col-span-3">
-            <h3 className="text-2xl font-semibold text-center text-brand-blue mt-12 mb-8">
+            <h3 className="text-2xl font-semibold text-center text-brand-blue mt-16 mb-12">
               Meet Our Leadership
             </h3>
           </div>
 
           {directors.map((director, index) => (
-            <div key={index} className="flex justify-center">
-              <Card className="w-full max-w-2xl bg-white/80 backdrop-blur-sm hover-lift border-t-4 border-t-skyblue mb-8">
+            <div key={index} className="flex justify-center w-full">
+              <Card className="w-full bg-white/80 backdrop-blur-sm hover-lift border-t-4 border-t-skyblue">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center">
                     <Avatar className="h-20 w-20 border-2 border-skyblue mb-4">
