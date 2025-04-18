@@ -133,7 +133,12 @@ const fleetCategories = [
         name: "Falcon 2000",
         passengers: "9",
         range: "3,350 nm",
-        description: "Renowned French engineering with exceptional comfort."
+        description: "Renowned French engineering with exceptional comfort.",
+        images: [
+          "/lovable-uploads/9a0f5f24-e294-4ff3-8e7a-9424f520f7fe.png",
+          "/lovable-uploads/d1b9f2e5-e179-465f-bb90-27dc4932a4a0.png",
+          "/lovable-uploads/2c520ceb-e89e-417b-9472-ebdabe0e354a.png"
+        ]
       }
     ]
   },
