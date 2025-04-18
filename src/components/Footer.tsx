@@ -1,5 +1,4 @@
-
-import { Heart, Phone } from "lucide-react";
+import { Heart, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,13 +31,20 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        
-        <div className="mt-8 pt-8 border-t border-white/20 text-center text-white/60 text-sm">
-          <p className="max-w-2xl mx-auto flex items-center justify-center gap-2">
-            <Phone className="h-5 w-5 inline-block" />
-            Contact Us: +91 9533490539 | +91 9493066511
-          </p>
-        </div>
+      
+      <div className="mt-8 pt-8 border-t border-white/20 text-center text-white/60 text-sm">
+        <p className="max-w-2xl mx-auto flex items-center justify-center gap-2">
+          <Phone className="h-5 w-5 inline-block mr-2" />
+          +91 9493066511
+        </p>
+        <p className="max-w-2xl mx-auto flex items-center justify-center gap-2 mt-1">
+          <Phone className="h-5 w-5 inline-block mr-2" />
+          +91 9533490539
+        </p>
+        <p className="max-w-2xl mx-auto flex items-center justify-center gap-2 mt-1">
+          <Mail className="h-5 w-5 inline-block mr-2" />
+          Email: ops@skydragonaero.com
+        </p>
       </div>
     </footer>
   );
