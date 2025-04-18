@@ -42,7 +42,8 @@ const Navigation = () => {
             className="h-10 w-10 rounded-md"
           />
           <span className={`font-bold text-xl ${isScrolled ? 'text-brand-blue' : 'text-white'}`}>
-            SkyDragon
+            <span className="text-skyblue">Sky</span>
+            <span className="text-brand-red">Dragon</span>
           </span>
         </div>
 
