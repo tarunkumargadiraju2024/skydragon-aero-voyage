@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plane, Sailboat, Ship } from "lucide-react";
+import { Plane, PlaneTakeoff, Plane2, JetTakeoff } from "lucide-react";
 
 const fleetCategories = [
   {
@@ -10,60 +10,109 @@ const fleetCategories = [
     icon: <Plane className="h-5 w-5" />,
     models: [
       {
-        name: "Citation CJ2+",
-        passengers: "6-7",
-        range: "1,700 nm",
-        description: "Perfect for short trips with exceptional comfort and efficiency."
+        name: "Cessna Citation CJ2",
+        passengers: "6",
+        range: "1,781 nm",
+        description: "Perfect balance of efficiency and comfort for short to medium-range trips."
       },
       {
-        name: "Beechcraft King Air 250",
-        passengers: "8-9",
+        name: "Beechcraft King Air 200/250",
+        passengers: "6",
         range: "1,720 nm",
-        description: "Versatile turboprop offering reliability and access to shorter runways."
+        description: "Versatile turboprop offering excellent performance and reliability."
       }
     ]
   },
   {
     id: "mid",
     name: "Mid Jets",
-    icon: <Sailboat className="h-5 w-5" />,
+    icon: <PlaneTakeoff className="h-5 w-5" />,
     models: [
       {
-        name: "Dassault Falcon",
-        passengers: "8-10",
-        range: "4,000 nm",
-        description: "Renowned for exceptional performance and elegant French design."
+        name: "Beechcraft Hawker 400",
+        passengers: "6",
+        range: "1,500 nm",
+        description: "Efficient mid-size jet perfect for regional flights."
       },
       {
-        name: "Hawker",
-        passengers: "8-9",
-        range: "3,000 nm",
-        description: "Spacious cabin with remarkable comfort for mid-range journeys."
+        name: "Beechcraft Hawker 800/850/900",
+        passengers: "7-8",
+        range: "2,900 nm",
+        description: "Exceptional comfort and range in the midsize category."
       },
       {
-        name: "Challenger 650",
-        passengers: "10-12",
-        range: "4,000 nm",
-        description: "Wide cabin design providing a true premium experience."
+        name: "Cessna Citation XLS+",
+        passengers: "8",
+        range: "2,100 nm",
+        description: "Superior performance with remarkable cabin comfort."
+      },
+      {
+        name: "Bombardier Learjet 45",
+        passengers: "8",
+        range: "2,000 nm",
+        description: "Classic design with modern amenities and reliability."
       }
     ]
   },
   {
-    id: "heavy",
-    name: "Heavy Jets",
-    icon: <Ship className="h-5 w-5" />,
+    id: "supermid",
+    name: "Super Mid Jets",
+    icon: <Plane2 className="h-5 w-5" />,
     models: [
       {
-        name: "Global 7500",
-        passengers: "14-17",
-        range: "7,700 nm",
-        description: "Ultimate luxury for long-range travel with four distinct living spaces."
+        name: "Embraer Legacy 600/650",
+        passengers: "13",
+        range: "3,900 nm",
+        description: "Spacious cabin with intercontinental range capabilities."
       },
       {
-        name: "Gulfstream 550",
-        passengers: "14-19",
+        name: "Bombardier Challenger 605",
+        passengers: "10-12",
+        range: "4,000 nm",
+        description: "Premium comfort with outstanding performance."
+      },
+      {
+        name: "Hawker 4000",
+        passengers: "8",
+        range: "3,280 nm",
+        description: "Advanced composite construction with superior comfort."
+      },
+      {
+        name: "Gulfstream G200",
+        passengers: "8",
+        range: "3,400 nm",
+        description: "Excellent range with spacious stand-up cabin."
+      },
+      {
+        name: "Gulfstream G150",
+        passengers: "7",
+        range: "3,000 nm",
+        description: "Efficient performance with luxury amenities."
+      },
+      {
+        name: "Falcon 2000",
+        passengers: "9",
+        range: "3,350 nm",
+        description: "Renowned French engineering with exceptional comfort."
+      }
+    ]
+  },
+  {
+    id: "large",
+    name: "Large Jets",
+    icon: <JetTakeoff className="h-5 w-5" />,
+    models: [
+      {
+        name: "Bombardier Global 5000/6000/7500",
+        passengers: "13-18",
+        range: "7,700 nm",
+        description: "Ultimate luxury for long-range travel with multiple living spaces."
+      },
+      {
+        name: "Gulfstream G450/550",
+        passengers: "13-18",
         range: "6,750 nm",
-        description: "Exceptional performance with renowned cabin experience and comfort."
+        description: "Exceptional performance with renowned cabin experience."
       }
     ]
   }
@@ -75,11 +124,11 @@ const FleetSection = () => {
       <div className="container mx-auto">
         <h2 className="section-title text-brand-blue">Our Impressive Fleet</h2>
         <p className="section-subtitle">
-          Experience luxury and performance across our carefully curated collection of aircraft.
+          Experience luxury and performance across our meticulously maintained collection of aircraft.
         </p>
 
         <Tabs defaultValue="light" className="w-full mt-8">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
             {fleetCategories.map((category) => (
               <TabsTrigger 
                 key={category.id} 
@@ -94,7 +143,7 @@ const FleetSection = () => {
 
           {fleetCategories.map((category) => (
             <TabsContent key={category.id} value={category.id} className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.models.map((model, index) => (
                   <Card key={index} className="bg-cloud-light hover-lift border-t-4 border-t-skyblue overflow-hidden">
                     <CardHeader className="pb-2">
