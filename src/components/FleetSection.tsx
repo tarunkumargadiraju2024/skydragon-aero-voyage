@@ -118,7 +118,11 @@ const fleetCategories = [
         name: "Gulfstream G150",
         passengers: "7",
         range: "3,000 nm",
-        description: "Efficient performance with luxury amenities."
+        description: "Efficient performance with luxury amenities.",
+        images: [
+          "/lovable-uploads/6f21053f-f699-42fe-ae24-6b0ddea4ba49.png",
+          "/lovable-uploads/e343230f-b90c-460d-9fc8-6570c2cd9fce.png"
+        ]
       },
       {
         name: "Falcon 2000",
