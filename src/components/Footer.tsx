@@ -1,4 +1,3 @@
-
 import { Heart, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
@@ -41,6 +40,10 @@ const Footer = () => {
           <p className="max-w-2xl mx-auto flex items-center justify-center gap-2 mt-1">
             <Phone className="h-5 w-5 inline-block mr-2" />
             +91 9533490539
+          </p>
+          <p className="max-w-2xl mx-auto flex items-center justify-center gap-2 mt-1">
+            <Phone className="h-5 w-5 inline-block mr-2" />
+            +91 9848274255
           </p>
           <p className="max-w-2xl mx-auto flex items-center justify-center gap-2 mt-1">
             <Mail className="h-5 w-5 inline-block mr-2" />
