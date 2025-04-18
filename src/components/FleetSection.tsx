@@ -37,7 +37,11 @@ const fleetCategories = [
         name: "Beechcraft Hawker 400",
         passengers: "6",
         range: "1,500 nm",
-        description: "Efficient mid-size jet perfect for regional flights."
+        description: "Efficient mid-size jet perfect for regional flights.",
+        images: [
+          "/lovable-uploads/123f89a4-0fe5-496f-90fe-994fb7309486.png",
+          "/lovable-uploads/d55d2a1f-87fd-421c-ad30-06a3fe183e42.png"
+        ]
       },
       {
         name: "Beechcraft Hawker 800/850/900",
