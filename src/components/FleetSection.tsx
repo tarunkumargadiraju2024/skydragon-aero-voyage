@@ -57,7 +57,12 @@ const fleetCategories = [
         name: "Cessna Citation XLS+",
         passengers: "8",
         range: "2,100 nm",
-        description: "Superior performance with remarkable cabin comfort."
+        description: "Superior performance with remarkable cabin comfort.",
+        images: [
+          "/lovable-uploads/xls-image-1.png",
+          "/lovable-uploads/xls-image-2.png",
+          "/lovable-uploads/xls-image-3.png"
+        ]
       },
       {
         name: "Bombardier Learjet 45",
