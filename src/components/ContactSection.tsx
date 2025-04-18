@@ -8,7 +8,7 @@ const contactInfo = [
     icon: <Phone className="h-6 w-6 text-skyblue" />,
     title: "Operations",
     content: [
-      "Kranti (Spars): +91 9493066511",
+      "Siva Kranthi Kumar: +91 9493066511",
       "Email: ops@skydragonaero.com"
     ],
     action: "tel:+919493066511",
