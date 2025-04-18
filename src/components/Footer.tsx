@@ -15,7 +15,10 @@ const Footer = () => {
               className="h-10 w-10 rounded-md mr-3 bg-white p-1"
             />
             <div>
-              <h3 className="font-bold text-xl">SkyDragon Aero</h3>
+              <h3 className="font-bold text-xl">
+                <span className="text-skyblue">Sky</span>
+                <span className="text-brand-red">Dragon</span> Aero
+              </h3>
               <p className="text-white/70 text-sm">Elevating your journey since 2017</p>
             </div>
           </div>

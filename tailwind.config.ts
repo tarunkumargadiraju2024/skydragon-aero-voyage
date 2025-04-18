@@ -74,7 +74,7 @@ export default {
 				},
 				brand: {
 					blue: '#004B8D',  // The deep blue from the logo
-					red: '#C41E3A'    // For accent and dragon icon
+					red: '#ea384c'    // Updated red color
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
