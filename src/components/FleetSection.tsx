@@ -1,13 +1,10 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plane, PlaneTakeoff, CircleDashed, Rocket } from "lucide-react";
 
 const fleetCategories = [
   {
     id: "light",
     name: "Light Jets",
-    icon: <Plane className="h-5 w-5" />,
     models: [
       {
         name: "Cessna Citation CJ2",
@@ -26,7 +23,6 @@ const fleetCategories = [
   {
     id: "mid",
     name: "Mid Jets",
-    icon: <PlaneTakeoff className="h-5 w-5" />,
     models: [
       {
         name: "Beechcraft Hawker 400",
@@ -57,7 +53,6 @@ const fleetCategories = [
   {
     id: "supermid",
     name: "Super Mid Jets",
-    icon: <CircleDashed className="h-5 w-5" />,
     models: [
       {
         name: "Embraer Legacy 600/650",
@@ -100,7 +95,6 @@ const fleetCategories = [
   {
     id: "large",
     name: "Large Jets",
-    icon: <Rocket className="h-5 w-5" />,
     models: [
       {
         name: "Bombardier Global 5000/6000/7500",
@@ -133,10 +127,9 @@ const FleetSection = () => {
               <TabsTrigger 
                 key={category.id} 
                 value={category.id}
-                className="flex items-center gap-2 data-[state=active]:bg-skyblue data-[state=active]:text-white"
+                className="data-[state=active]:bg-skyblue data-[state=active]:text-white"
               >
-                {category.icon}
-                <span className="hidden sm:inline">{category.name}</span>
+                <span>{category.name}</span>
               </TabsTrigger>
             ))}
           </TabsList>

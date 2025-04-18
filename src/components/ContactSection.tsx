@@ -1,5 +1,4 @@
-
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -8,16 +7,11 @@ const contactInfo = [
     icon: <Phone className="h-6 w-6 text-skyblue" />,
     title: "Operations",
     content: [
-      "Siva Kranthi Kumar: +91 9493066511",
+      "+91 9493066511",
+      "+91 9533490539",
       "Email: ops@skydragonaero.com"
     ],
     action: "tel:+919493066511",
-  },
-  {
-    icon: <Mail className="h-6 w-6 text-skyblue" />,
-    title: "Corporate Email",
-    content: "info@skydragonaero.com",
-    action: "mailto:info@skydragonaero.com",
   },
   {
     icon: <MapPin className="h-6 w-6 text-skyblue" />,
