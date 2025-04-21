@@ -118,128 +118,6 @@ const services = [
     description:
       "Comprehensive services including crew arrangement, ground handling, and international operations.",
     icon: <PlaneTakeoff className="h-10 w-10 text-skyblue" />,
-    expandable: true,
-    expandedContent: (
-      <div className="text-gray-700/90 text-left space-y-4 mt-3">
-        <div className="text-2xl font-semibold text-skyblue-dark mb-1 flex items-center gap-2">
-          <span role="img" aria-label="plane">✈️</span>
-          Comprehensive Trip Support Services
-        </div>
-
-        <div className="italic text-brand-blue mb-2 pl-1">
-          Your Journey, Seamlessly Coordinated
-        </div>
-
-        <div>
-          Trip Support encompasses all critical services required to ensure smooth, compliant, and efficient flight operations—especially for international and non-scheduled missions. From takeoff to touchdown, we handle every detail so your crew and passengers can focus on the journey, not the logistics.
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="compass">🧭</span> Flight Planning</span>
-          <ul className="list-disc ml-6">
-            <li>Precision route optimization for safety and efficiency</li>
-            <li>Accurate fuel planning tailored to each mission</li>
-            <li>Up-to-date weather briefings and meteorological insights</li>
-            <li>Comprehensive NOTAM and TFR (Temporary Flight Restriction) analysis</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="earth">🌍</span> Overflight &amp; Landing Permits</span>
-          <ul className="list-disc ml-6">
-            <li>End-to-end permit management as per country-specific regulations</li>
-            <li>Monitoring lead times and permit validity for hassle-free operations</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="ground">🛬</span> Ground Handling Coordination</span>
-          <ul className="list-disc ml-6">
-            <li>Liaison with FBOs and ground service providers</li>
-            <li>Ramp services including GPU, stairs, water, and lavatory arrangements</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="fuel">⛽</span> Fuel Arrangements</span>
-          <ul className="list-disc ml-6">
-            <li>Competitive fuel pricing with guaranteed availability</li>
-            <li>Fuel release coordination and credit facilities</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="crew">👨‍✈️</span> Crew Support</span>
-          <ul className="list-disc ml-6">
-            <li>Hotel accommodations for crew</li>
-            <li>Visa facilitation and support</li>
-            <li>Ground transport coordination</li>
-            <li>Duty time management and compliance</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="catering">🍽️</span> Catering Services</span>
-          <ul className="list-disc ml-6">
-            <li>Customized in-flight catering for passengers and crew</li>
-            <li>Special dietary needs accommodated on request</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="customs">🛃</span> Security, Customs &amp; Immigration (CIQ)</span>
-          <ul className="list-disc ml-6">
-            <li>CIQ handling in coordination with airport authorities</li>
-            <li>Security arrangements tailored to mission requirements</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="parking">🅿️</span> Slot &amp; Parking Management</span>
-          <ul className="list-disc ml-6">
-            <li>Airport slot application and tracking</li>
-            <li>Guaranteed parking space coordination</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="concierge">💼</span> Passenger Concierge (Optional)</span>
-          <ul className="list-disc ml-6">
-            <li>Meet &amp; assist services at departure and arrival</li>
-            <li>VIP handling for executives and high-profile travelers</li>
-          </ul>
-        </div>
-
-        <div className="text-skyblue mb-2">⸻</div>
-
-        <div>
-          <span className="font-semibold flex items-center gap-2"><span role="img" aria-label="technical">🛠️</span> Technical Support (Optional)</span>
-          <ul className="list-disc ml-6">
-            <li>On-ground AOG support coordination</li>
-            <li>Spare parts sourcing</li>
-            <li>Liaison with local maintenance teams</li>
-          </ul>
-        </div>
-      </div>
-    )
   },
   {
     title: "Hospitality",
@@ -266,6 +144,7 @@ const engineeringContent = (
       <li>Continuous Training Culture to stay aligned with evolving technologies and global standards.</li>
       <li>Client-Centric Approach ensuring tailored support for every maintenance need.</li>
     </ul>
+    {/* Tagline */}
     <div className="mt-6 text-brand-blue/90 italic text-center font-semibold">
       Experience you can trust. Support you can count on.
     </div>
@@ -342,6 +221,7 @@ const ServicesSection = () => {
           })}
         </div>
 
+        {/* Engineering section now at the bottom after services */}
         <div className="max-w-4xl mx-auto bg-white/80 rounded-2xl shadow-md px-8 py-6 mb-6 mt-16" style={{ opacity: 0.875 }}>
           {engineeringContent}
         </div>

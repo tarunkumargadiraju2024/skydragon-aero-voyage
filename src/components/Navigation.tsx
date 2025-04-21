@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -34,43 +35,38 @@ const Navigation = () => {
       )}
     >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Updated Logo - Only sd-icon.png aligned similar to previous logo */}
+        {/* Logo only, for all breakpoints - use white bg on transparent nav for visibility */}
         <div className="flex items-center gap-2">
           <img
-            src="/lovable-uploads/sd-icon.png"
-            alt="SD Icon"
+            src="/lovable-uploads/af7b43ee-5b45-46c7-9b04-0b9abd7cbfc2.png"
+            alt="SkyDragon Logo"
             className={cn(
-              "h-10 w-10 object-contain transition-all",
-              isScrolled ? "" : "bg-white/90 rounded-md p-1 shadow"
+              "h-12 w-auto",
+              isScrolled ? "" : "bg-white/80 rounded-md p-1 shadow-sm"
             )}
             style={{
-              maxHeight: 40,
-              maxWidth: 40,
-              borderRadius: 8,
+              maxHeight: 46,
+              maxWidth: 168,
+              objectFit: "contain",
               background: isScrolled ? "transparent" : "rgba(255,255,255,0.90)",
-              boxShadow: isScrolled ? "none" : "0 2px 8px rgba(0,0,0,0.07)",
+              borderRadius: 8,
             }}
           />
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 items-center">
-          {["about", "fleet", "services", "quote", "contact"].map((item) => {
-            // Redirect Private Charter click to fleet section by mapping that text to fleet scroll
-            // Since "private charter" is part of "services" menu, we assume "services" might have dropdown, but original code doesn't show it
-            // We will just keep the menu as is - if "private charter" is a sub-item under services, user must add that link separately
-            return (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className={`text-sm font-medium hover:text-skyblue transition-colors ${
-                  isScrolled ? "text-gray-800" : "text-white"
-                }`}
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </button>
-            );
-          })}
+          {["about", "fleet", "services", "quote", "contact"].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className={`text-sm font-medium hover:text-skyblue transition-colors ${
+                isScrolled ? "text-gray-800" : "text-white"
+              }`}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </button>
+          ))}
           <Button
             onClick={() => scrollToSection("quote")}
             variant="default"
@@ -99,12 +95,7 @@ const Navigation = () => {
             {["about", "fleet", "services", "quote", "contact"].map((item) => (
               <button
                 key={item}
-                onClick={() =>
-                  // If user clicks "Private Charter",_scroll to fleet
-                  item === "services"
-                    ? scrollToSection("fleet")
-                    : scrollToSection(item)
-                }
+                onClick={() => scrollToSection(item)}
                 className="text-lg font-medium text-gray-800 hover:text-skyblue transition-colors"
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
