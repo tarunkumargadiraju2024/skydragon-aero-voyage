@@ -39,10 +39,10 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-6 z-10 text-center">
         <div className="fade-in opacity-0" style={{ animationDelay: "0.3s" }}>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-shadow leading-tight">
+          <h1 className="font-serif font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-shadow leading-tight">
             Where Every Journey <br className="hidden md:block" /> Feels First Class
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-sans">
             Since 2017, SkyDragon Aero has redefined private aviation with a touch of elegance.
           </p>
           <Button 

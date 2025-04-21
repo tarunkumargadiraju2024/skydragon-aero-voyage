@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Briefcase,
@@ -7,7 +8,6 @@ import {
   Settings,
   PlaneTakeoff,
 } from "lucide-react";
-import { useState } from "react";
 
 const services = [
   {
@@ -24,93 +24,84 @@ const services = [
   },
   {
     title: "Spare Parts Support",
-    description:
-      "Comprehensive FDI marketing and distribution of aircraft parts in India, keeping your fleet in pristine condition.",
-    icon: <Wrench className="h-10 w-10 text-skyblue" />,
-    expandable: true,
-    expandedContent: (
-      <div className="text-gray-700/90 text-left space-y-3 mt-3">
-        <p>
-          Our comprehensive Spare Parts Support ensures operational readiness and reliability for your fleet. We offer a wide range of certified components and consumables, tailored to meet the demands of both scheduled maintenance and urgent repairs. Our inventory and sourcing capabilities cover key categories:
-        </p>
-        <ol className="list-decimal list-inside space-y-3">
+    description: (
+      <div className="text-left space-y-2">
+        <div>
+          Our comprehensive Spare Parts Support ensures operational readiness and reliability for your fleet.<br />
+          We offer a wide range of certified components and consumables, tailored to meet the demands of both scheduled maintenance and urgent repairs.
+          Our inventory and sourcing capabilities cover key categories:
+        </div>
+        <ol className="list-decimal list-inside pl-4 space-y-3 text-gray-700/90">
           <li>
-            <b>Rotables</b><br />
-            Rotable components are designed for repair and reuse, making them a cost-effective solution for long-term maintenance planning. We provide timely access to a broad inventory of airworthy, overhauled, and serviceable rotable parts, ensuring reduced aircraft downtime and optimized operational efficiency.
+            <b>Rotables</b>
+            <br />
+            Rotable components are designed for repair and reuse, making them a cost-effective solution for long-term maintenance planning.
+            We provide timely access to a broad inventory of airworthy, overhauled, and serviceable rotable parts, ensuring reduced aircraft downtime and optimized operational efficiency.
           </li>
           <li>
-            <b>Expandables</b><br />
-            Expendables are single-use components that are replaced after each use. Our inventory includes fast-moving and critical expendables—ranging from hardware and seals to filters and gaskets—sourced from trusted OEMs and fully compliant with aviation standards.
+            <b>Expandables</b>
+            <br />
+            Expendables are single-use components that are replaced after each use.
+            Our inventory includes fast-moving and critical expendables—ranging from hardware and seals to filters and gaskets—sourced from trusted OEMs and fully compliant with aviation standards.
           </li>
           <li>
-            <b>POLs (Petroleum, Oil &amp; Lubricants)</b><br />
-            We supply high-quality Petroleum, Oil, and Lubricants (POLs) essential for the smooth operation and maintenance of aircraft systems. Our POLs inventory includes engine oils, hydraulic fluids, greases, and specialty lubricants, all compliant with OEM specifications and aviation-grade standards.
+            <b>POLs (Petroleum, Oil &amp; Lubricants)</b>
+            <br />
+            We supply high-quality Petroleum, Oil, and Lubricants (POLs) essential for the smooth operation and maintenance of aircraft systems.
+            Our POLs inventory includes engine oils, hydraulic fluids, greases, and specialty lubricants, all compliant with OEM specifications and aviation-grade standards.
           </li>
         </ol>
       </div>
     ),
+    icon: <Wrench className="h-10 w-10 text-skyblue" />,
   },
   {
     title: "Aircraft Management",
-    description:
-      "Professional management of your aircraft, optimizing operations, maintenance, and financial performance.",
-    icon: <Settings className="h-10 w-10 text-skyblue" />,
-    expandable: true,
-    expandedContent: (
-      <div className="text-gray-700/90 text-left space-y-3 mt-3">
-        <h4 className="font-bold text-brand-blue mb-2">Aircraft Management</h4>
-        <ol className="list-decimal list-inside space-y-3">
-          <li>
-            <b>Aircraft Acquisition &amp; Leasing</b>
-            <ul className="list-disc ml-6">
-              <li>
-                <b>Aircraft Availability &amp; Condition:</b> Ensuring the aircraft is always ready for operation, well-maintained, and meets regulatory requirements.
-              </li>
-              <li>
-                <b>Purchasing:</b> Evaluate the market, assess options (new or pre-owned), and negotiate terms.
-              </li>
-              <li>
-                <b>Leasing:</b> Flexibility in fleet management via:
-                <ul className="list-disc ml-6">
-                  <li><b>Wet Lease:</b> Lessor provides aircraft, crew, maintenance, and insurance.</li>
-                  <li><b>Dry Lease:</b> Lessor provides only aircraft; lessee provides crew, maintenance, insurance.</li>
-                </ul>
-              </li>
-              <li>
-                <b>Financing:</b> Options include loans, bank financing, operating/capital leases.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <b>Scheduling</b>
-            <ul className="list-disc ml-6">
-              <li>Flight routes/timings, crew availability, maintenance schedules, and weather/airspace coordination.</li>
-              <li>Flight planning: optimized for fuel, time, safety.</li>
-              <li>Crew/maintenance scheduling to minimize downtime and maximize readiness.</li>
-            </ul>
-          </li>
-          <li>
-            <b>Charter Services</b>
-            <ul className="list-disc ml-6">
-              <li>Private/charter/corporate flights tailored to client preferences.</li>
-              <li>Regulation compliance; competitive pricing covering all costs.</li>
-            </ul>
-          </li>
-          <li>
-            <b>Onboard Services</b>
-            <ul className="list-disc ml-6">
-              <li>Certified cabin crew, personalized catering, and exceptional client service.</li>
-            </ul>
-          </li>
-          <li>
-            <b>Communication</b>
-            <ul className="list-disc ml-6">
-              <li>Flight status updates, timely notifications, and emergency comms for passengers, staff, authorities.</li>
-            </ul>
-          </li>
-        </ol>
+    description: (
+      <div className="text-left space-y-2">
+        <div>
+          Professional management of your aircraft, optimizing operations, maintenance, and financial performance.
+        </div>
+        <div className="mt-2 text-gray-700/90">
+          <ol className="list-decimal list-inside pl-4 space-y-2">
+            <li>
+              <b>Aircraft Acquisition &amp; Leasing</b><br />
+              <span className="text-sm text-gray-500">
+                <b>Aircraft Availability &amp; Condition:</b> Ensuring the aircraft is always ready for operation, well-maintained, and meets regulatory requirements.<br />
+                <b>Purchasing:</b> Evaluate the market, assess options (new or pre-owned), and negotiate terms.<br />
+                <b>Leasing:</b> Wet Lease (aircraft, crew, maintenance, insurance) or Dry Lease (just aircraft).<br />
+                <b>Financing:</b> Loans, bank financing, operating/capital leases.
+              </span>
+            </li>
+            <li>
+              <b>Scheduling</b><br />
+              <span className="text-sm text-gray-500">
+                Managing routes, crew, maintenance; optimizing flight planning and compliance.
+              </span>
+            </li>
+            <li>
+              <b>Charter Services</b><br />
+              <span className="text-sm text-gray-500">
+                Charter flexibility, tailored for client needs, regulatory compliance, competitive pricing.
+              </span>
+            </li>
+            <li>
+              <b>Onboard Services</b><br />
+              <span className="text-sm text-gray-500">
+                Certified crew, high-quality catering, premium service for passengers.
+              </span>
+            </li>
+            <li>
+              <b>Communication</b><br />
+              <span className="text-sm text-gray-500">
+                Real-time flight status updates, notifications for delays/changes, emergency communications.
+              </span>
+            </li>
+          </ol>
+        </div>
       </div>
     ),
+    icon: <Settings className="h-10 w-10 text-skyblue" />,
   },
   {
     title: "Trip Support",
@@ -127,62 +118,37 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const [openCard, setOpenCard] = useState<number | null>(null);
-
-  const handleToggle = (index: number) => {
-    setOpenCard(openCard === index ? null : index);
-  };
-
   return (
     <section id="services" className="section-padding sky-gradient">
       <div className="container mx-auto">
-        <h2 className="section-title text-brand-blue">Our Services</h2>
-        <p className="section-subtitle">
+        <h2 className="section-title text-brand-blue font-playfair">Our Services</h2>
+        <p className="section-subtitle font-sans">
           Comprehensive aviation solutions delivered with warmth and expertise.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {services.map((service, index) => {
-            const isExpandable = Boolean(service.expandable);
-            const isOpen = openCard === index;
-            return (
-              <Card
-                key={index}
-                className={`bg-white/80 backdrop-blur-sm border-none shadow-md hover-lift overflow-hidden group transition-all duration-300 ${
-                  isOpen ? "ring-2 ring-skyblue" : ""}`}
-                tabIndex={isExpandable ? 0 : -1}
-                onClick={isExpandable ? () => handleToggle(index) : undefined}
-                onKeyDown={
-                  isExpandable
-                    ? (e) => {
-                        if (e.key === "Enter" || e.key === " ") handleToggle(index);
-                      }
-                    : undefined
-                }
-                role={isExpandable ? "button" : undefined}
-                aria-expanded={isOpen}
-              >
-                <CardContent className="p-6 flex flex-col items-center text-center cursor-pointer select-none">
-                  <div className="rounded-full bg-cloud-light p-5 mb-5 group-hover:bg-skyblue/10 transition-colors">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-brand-blue mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600">{service.description}</p>
-                  {isExpandable && (
-                    <span className="mt-2 text-skyblue font-medium transition-colors underline">
-                      {isOpen ? "Close" : "Learn More"}
-                    </span>
-                  )}
-                  {isExpandable && isOpen && (
-                    <div className="mt-5 fade-in">{service.expandedContent}</div>
-                  )}
-                </CardContent>
-                <div className="h-1 w-0 group-hover:w-full bg-skyblue transition-all duration-300"></div>
-              </Card>
-            );
-          })}
+          {services.map((service, index) => (
+            <Card
+              key={index}
+              className={
+                "bg-white/90 backdrop-blur-md border-none shadow-lg hover-lift overflow-hidden group transition-all duration-300" +
+                (service.title === "Spare Parts Support" || service.title === "Aircraft Management" ? " ring-2 ring-skyblue/60" : "")
+              }
+            >
+              <CardContent className="p-6 flex flex-col items-center text-center min-h-[370px]">
+                <div className="rounded-full bg-cloud-light p-5 mb-5 group-hover:bg-skyblue/10 transition-colors">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-brand-blue font-playfair mb-3">
+                  {service.title}
+                </h3>
+                <div className="text-gray-700 text-left w-full text-base font-sans">
+                  {service.description}
+                </div>
+              </CardContent>
+              <div className="h-1 w-0 group-hover:w-full bg-skyblue transition-all duration-300"></div>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
