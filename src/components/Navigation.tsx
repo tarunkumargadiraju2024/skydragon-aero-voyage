@@ -35,16 +35,23 @@ const Navigation = () => {
       )}
     >
       <div className="container mx-auto flex justify-between items-center">
+        {/* Logo only, for all breakpoints - use white bg on transparent nav for visibility */}
         <div className="flex items-center gap-2">
-          <img 
-            src="/lovable-uploads/aaf65ddc-4719-4c06-bcbd-cd299d2017f1.png" 
-            alt="SkyDragon Aero Logo" 
-            className="h-10 w-10 rounded-md"
+          <img
+            src="/lovable-uploads/af7b43ee-5b45-46c7-9b04-0b9abd7cbfc2.png"
+            alt="SkyDragon Logo"
+            className={cn(
+              "h-12 w-auto",
+              isScrolled ? "" : "bg-white/80 rounded-md p-1 shadow-sm"
+            )}
+            style={{
+              maxHeight: 46,
+              maxWidth: 168,
+              objectFit: "contain",
+              background: isScrolled ? "transparent" : "rgba(255,255,255,0.90)",
+              borderRadius: 8,
+            }}
           />
-          <span className={`font-bold text-xl ${isScrolled ? 'text-brand-blue' : 'text-white'}`}>
-            <span className="text-[#005190]">Sky</span>
-            <span className="text-brand-red">Dragon</span>
-          </span>
         </div>
 
         {/* Desktop Navigation */}

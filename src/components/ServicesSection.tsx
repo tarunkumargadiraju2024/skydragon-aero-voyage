@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Briefcase,
@@ -16,6 +15,7 @@ const services = [
     description:
       "Elegant and efficient private flights tailored to your schedule and preferences. Experience travel without compromise.",
     icon: <Plane className="h-10 w-10 text-skyblue" />,
+    scrollTo: "fleet",
   },
   {
     title: "Corporate Solutions",
@@ -158,6 +158,18 @@ const ServicesSection = () => {
     setOpenCard(openCard === index ? null : index);
   };
 
+  const handleCardClick = (index: number) => {
+    const service = services[index];
+    if (service.scrollTo) {
+      const el = document.getElementById(service.scrollTo);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else if (service.expandable) {
+      handleToggle(index);
+    }
+  };
+
   return (
     <section id="services" className="section-padding sky-gradient">
       <div className="container mx-auto">
@@ -165,7 +177,6 @@ const ServicesSection = () => {
         <p className="section-subtitle">
           Comprehensive aviation solutions delivered with warmth and expertise.
         </p>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {services.map((service, index) => {
             const isExpandable = Boolean(service.expandable);
@@ -175,16 +186,16 @@ const ServicesSection = () => {
                 key={index}
                 className={`bg-white/80 backdrop-blur-sm border-none shadow-md hover-lift overflow-hidden group transition-all duration-300 ${
                   isOpen ? "ring-2 ring-skyblue" : ""}`}
-                tabIndex={isExpandable ? 0 : -1}
-                onClick={isExpandable ? () => handleToggle(index) : undefined}
+                tabIndex={isExpandable || service.scrollTo ? 0 : -1}
+                onClick={() => handleCardClick(index)}
                 onKeyDown={
-                  isExpandable
+                  isExpandable || service.scrollTo
                     ? (e) => {
-                        if (e.key === "Enter" || e.key === " ") handleToggle(index);
+                        if (e.key === "Enter" || e.key === " ") handleCardClick(index);
                       }
                     : undefined
                 }
-                role={isExpandable ? "button" : undefined}
+                role={isExpandable || service.scrollTo ? "button" : undefined}
                 aria-expanded={isOpen}
               >
                 <CardContent className="p-6 flex flex-col items-center text-center cursor-pointer select-none">
@@ -220,4 +231,3 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
-
