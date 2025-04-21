@@ -13,20 +13,8 @@ const HeroSection = () => {
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-      {/* Aircraft background image (cover) */}
-      <img
-        src="/lovable-uploads/56a72db8-18e1-4706-9c53-a27cc0103819.png"
-        alt="SkyDragon Jet"
-        className="absolute inset-0 w-full h-full object-cover object-center z-0"
-        style={{ minHeight: "100vh" }}
-        draggable={false}
-      />
-      {/* Overlay gradient for contrast */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 to-black/10 pointer-events-none" />
-      {/* Content */}
+      {/* Removed background image */}
       <div className="container relative z-20 flex flex-col items-center justify-center mx-auto px-6">
-        {/* Spacer to move content below the aircraft */}
-        <div className="h-[40vh] md:h-[48vh] lg:h-[45vh]" />
         <div className="w-full text-center">
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-shadow leading-tight drop-shadow-lg">
             Where Every Journey <br className="hidden md:block" /> Feels First Class
@@ -43,8 +31,6 @@ const HeroSection = () => {
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
-        {/* Optional: bottom gradient for smoothness */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
       </div>
     </div>
   );
