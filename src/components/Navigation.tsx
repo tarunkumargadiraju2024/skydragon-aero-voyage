@@ -35,21 +35,23 @@ const Navigation = () => {
       )}
     >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo only, for all breakpoints - use white bg on transparent nav for visibility */}
+        {/* Logo only, center/align with site style, visible on both bg colors */}
         <div className="flex items-center gap-2">
           <img
-            src="/lovable-uploads/af7b43ee-5b45-46c7-9b04-0b9abd7cbfc2.png"
-            alt="SkyDragon Logo"
+            src="/lovable-uploads/sd-logo.png"
+            alt="SD Logo"
             className={cn(
-              "h-12 w-auto",
-              isScrolled ? "" : "bg-white/80 rounded-md p-1 shadow-sm"
+              "h-12 w-auto object-contain transition-all",
+              isScrolled
+                ? ""
+                : "bg-white/90 rounded-md p-1 shadow"
             )}
             style={{
               maxHeight: 46,
               maxWidth: 168,
-              objectFit: "contain",
-              background: isScrolled ? "transparent" : "rgba(255,255,255,0.90)",
               borderRadius: 8,
+              background: isScrolled ? "transparent" : "rgba(255,255,255,0.90)",
+              boxShadow: isScrolled ? "none" : "0 2px 8px rgba(0,0,0,0.07)"
             }}
           />
         </div>
