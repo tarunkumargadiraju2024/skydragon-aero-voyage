@@ -16,8 +16,8 @@ const HeroSection = () => {
       {/* New airplane image as background with overlay */}
       <div className="absolute inset-0 w-full h-full">
         <img
-          src="/lovable-uploads/photo-2212880-2048x1322-desktop-hd-gulfstream-aerospace-wallpaper-photo.jpg"
-          alt="Private Jet flying at sunset"
+          src="/lovable-uploads/18eb2d9a-6f54-42c5-a55b-24027e0cffee.png"
+          alt="Two private jets flying over water with islands in background"
           className="w-full h-full object-cover object-center"
           draggable={false}
         />
