@@ -12,54 +12,59 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with video overlay, fallback to image */}
-      <div className="absolute inset-0 z-0">
-        {/* 4K loop video background, muted, faded with overlay gradient */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover object-center absolute inset-0"
-          poster="/lovable-uploads/b597ec11-ba38-43e1-914c-02efd1f86f18.png"
-        >
-          <source src="/flight-loop.mp4" type="video/mp4" />
-          {/* Fallback image if video fails */}
-          <img
-            src="/lovable-uploads/b597ec11-ba38-43e1-914c-02efd1f86f18.png"
-            alt="Flight over clouds"
-            className="w-full h-full object-cover object-center"
-          />
-        </video>
-        {/* Gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/70 to-skyblue/50 mix-blend-multiply"></div>
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+      {/* Logo top left */}
+      <div className="absolute top-8 left-8 z-20 flex items-center">
+        <img
+          src="/lovable-uploads/af7b43ee-5b45-46c7-9b04-0b9abd7cbfc2.png"
+          alt="SkyDragon Aero Logo"
+          className="h-16 w-auto md:h-20"
+          style={{
+            maxWidth: 180,
+            objectFit: "contain",
+            background: "rgba(255,255,255,0.85)",
+            borderRadius: 10,
+            boxShadow: "0 2px 16px 0 rgba(0,0,0,0.10)",
+            padding: 4,
+          }}
+        />
       </div>
-      
+      {/* Aircraft background image (cover) */}
+      <img
+        src="/lovable-uploads/56a72db8-18e1-4706-9c53-a27cc0103819.png"
+        alt="SkyDragon Jet"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        style={{ minHeight: "100vh" }}
+        draggable={false}
+      />
+      {/* Overlay gradient for contrast */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 to-black/10 pointer-events-none" />
       {/* Content */}
-      <div className="container mx-auto px-6 z-10 text-center">
-        <div className="fade-in opacity-0" style={{ animationDelay: "0.3s" }}>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-shadow leading-tight">
+      <div className="container relative z-20 flex flex-col items-center justify-center mx-auto px-6">
+        {/* Spacer to move content below the aircraft */}
+        <div className="h-[36vh] md:h-[45vh] lg:h-[43vh]" />
+        <div className="w-full text-center">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-shadow leading-tight drop-shadow-lg">
             Where Every Journey <br className="hidden md:block" /> Feels First Class
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-md">
             Since 2017, SkyDragon Aero has redefined private aviation with a touch of elegance.
           </p>
           <Button 
             onClick={scrollToQuote} 
             size="lg" 
-            className="bg-white text-brand-blue hover:bg-gold hover:text-white rounded-full group transition-all duration-300"
+            className="bg-white text-brand-blue hover:bg-gold hover:text-white rounded-full group transition-all duration-300 shadow-lg px-8"
           >
             Request Your Jet Now
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
-        
-        {/* Floating cloud decorations */}
-        <div className="absolute -bottom-2 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent z-10"></div>
+        {/* Optional: bottom gradient for smoothness */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
       </div>
     </div>
   );
 };
 
 export default HeroSection;
+
