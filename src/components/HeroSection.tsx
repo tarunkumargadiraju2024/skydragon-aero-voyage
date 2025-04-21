@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
@@ -13,21 +12,18 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden">
-      {/* New airplane image as background with overlay */}
+      {/* Update to new airplane image background, remove overlay */}
       <div className="absolute inset-0 w-full h-full">
         <img
-          src="/lovable-uploads/18eb2d9a-6f54-42c5-a55b-24027e0cffee.png"
-          alt="Two private jets flying over water with islands in background"
+          src="/lovable-uploads/b31030fc-3bbc-4677-bcf5-edcc715c42a7.png"
+          alt="Gulfstream G600 private jet at sunset"
           className="w-full h-full object-cover object-center"
           draggable={false}
         />
-        {/* Darker overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       </div>
-
-      {/* Centered content on top of the image */}
+      {/* No overlaid text or button */}
       <div className="relative z-10 w-full max-w-3xl mx-auto px-6 text-center flex flex-col items-center justify-center">
-        {/* Text and button removed as per user request */}
+        {/* No text or button as per user request */}
       </div>
     </section>
   );
