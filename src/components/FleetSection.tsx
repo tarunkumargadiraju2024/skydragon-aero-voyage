@@ -61,7 +61,9 @@ const fleetCategories = [
         images: [
           "/lovable-uploads/xls-image-1.png",
           "/lovable-uploads/xls-image-2.png",
-          "/lovable-uploads/xls-image-3.png"
+          "/lovable-uploads/xls-image-3.png",
+          "/lovable-uploads/aaede028-a0b0-43cf-927a-f0656191c034.png",
+          "/lovable-uploads/7ec5acf5-f8a1-4f84-8b4d-7cd803fd1258.png"
         ]
       },
       {
