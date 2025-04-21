@@ -13,22 +13,6 @@ const HeroSection = () => {
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-      {/* Logo top left */}
-      <div className="absolute top-8 left-8 z-20 flex items-center">
-        <img
-          src="/lovable-uploads/af7b43ee-5b45-46c7-9b04-0b9abd7cbfc2.png"
-          alt="SkyDragon Aero Logo"
-          className="h-16 w-auto md:h-20"
-          style={{
-            maxWidth: 180,
-            objectFit: "contain",
-            background: "rgba(255,255,255,0.85)",
-            borderRadius: 10,
-            boxShadow: "0 2px 16px 0 rgba(0,0,0,0.10)",
-            padding: 4,
-          }}
-        />
-      </div>
       {/* Aircraft background image (cover) */}
       <img
         src="/lovable-uploads/56a72db8-18e1-4706-9c53-a27cc0103819.png"
@@ -42,7 +26,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container relative z-20 flex flex-col items-center justify-center mx-auto px-6">
         {/* Spacer to move content below the aircraft */}
-        <div className="h-[36vh] md:h-[45vh] lg:h-[43vh]" />
+        <div className="h-[40vh] md:h-[48vh] lg:h-[45vh]" />
         <div className="w-full text-center">
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-shadow leading-tight drop-shadow-lg">
             Where Every Journey <br className="hidden md:block" /> Feels First Class
@@ -67,4 +51,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
