@@ -118,12 +118,171 @@ const services = [
     description:
       "Comprehensive services including crew arrangement, ground handling, and international operations.",
     icon: <PlaneTakeoff className="h-10 w-10 text-skyblue" />,
+    expandable: true,
+    expandedContent: (
+      <div className="text-gray-700/90 text-left space-y-3 mt-3">
+        <h4 className="text-xl font-semibold text-brand-blue flex items-center gap-2 mb-2">
+          ✈️ Comprehensive Trip Support Services
+        </h4>
+        <div className="mb-2 italic text-sm text-skyblue-dark font-medium">
+          Your Journey, Seamlessly Coordinated
+        </div>
+        <p>
+          Trip Support encompasses all critical services required to ensure smooth, compliant, and efficient flight operations—especially for international and non-scheduled missions. From takeoff to touchdown, we handle every detail so your crew and passengers can focus on the journey, not the logistics.
+        </p>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🧭 Flight Planning</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>Precision route optimization for safety and efficiency</li>
+            <li>Accurate fuel planning tailored to each mission</li>
+            <li>Up-to-date weather briefings and meteorological insights</li>
+            <li>Comprehensive NOTAM and TFR (Temporary Flight Restriction) analysis</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🌍 Overflight &amp; Landing Permits</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>End-to-end permit management as per country-specific regulations</li>
+            <li>Monitoring lead times and permit validity for hassle-free operations</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🛬 Ground Handling Coordination</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>Liaison with FBOs and ground service providers</li>
+            <li>Ramp services including GPU, stairs, water, and lavatory arrangements</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>⛽ Fuel Arrangements</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>Competitive fuel pricing with guaranteed availability</li>
+            <li>Fuel release coordination and credit facilities</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>👨‍✈️ Crew Support</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>Hotel accommodations for crew</li>
+            <li>Visa facilitation and support</li>
+            <li>Ground transport coordination</li>
+            <li>Duty time management and compliance</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🍽️ Catering Services</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>Customized in-flight catering for passengers and crew</li>
+            <li>Special dietary needs accommodated on request</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🛃 Security, Customs &amp; Immigration (CIQ)</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>CIQ handling in coordination with airport authorities</li>
+            <li>Security arrangements tailored to mission requirements</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🅿️ Slot &amp; Parking Management</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>Airport slot application and tracking</li>
+            <li>Guaranteed parking space coordination</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>💼 Passenger Concierge (Optional)</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>Meet &amp; assist services at departure and arrival</li>
+            <li>VIP handling for executives and high-profile travelers</li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🛠️ Technical Support (Optional)</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>On-ground AOG support coordination</li>
+            <li>Spare parts sourcing</li>
+            <li>Liaison with local maintenance teams</li>
+          </ul>
+        </div>
+      </div>
+    ),
   },
   {
     title: "Hospitality",
     description:
       "Exquisite personalized catering, premium hotel bookings, and seamless ground transfers for a complete luxury experience.",
     icon: <Utensils className="h-10 w-10 text-skyblue" />,
+    expandable: true,
+    expandedContent: (
+      <div className="text-gray-700/90 text-left space-y-3 mt-3">
+        <h4 className="text-xl font-semibold text-brand-blue flex items-center gap-2 mb-2">
+          🛎️ Hospitality Services
+        </h4>
+        <div className="mb-2 italic text-sm text-skyblue-dark font-medium">
+          Luxury in the Sky &amp; Comfort on the Ground
+        </div>
+        <p>
+          At the heart of every charter experience is world-class hospitality. We go beyond transportation to deliver an elevated experience — whether you’re flying for business or leisure. Our hospitality services are curated to provide seamless comfort, privacy, and personalized care at every stage of your journey.
+        </p>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>✨ In-Flight Experience</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>
+              <b>Personalized Cabin Service:</b> Professional cabin crew trained in luxury hospitality, ensuring your comfort, privacy, and safety throughout the flight.
+            </li>
+            <li>
+              <b>Gourmet Catering:</b> Curated menus featuring international cuisines, premium beverages, and customized meal options to suit your dietary preferences.
+            </li>
+            <li>
+              <b>Entertainment &amp; Amenities:</b> Onboard Wi-Fi (where available), entertainment options, and luxury amenities tailored to your needs.
+            </li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🛬 Ground-Level Luxury</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>
+              <b>VIP Lounge Access:</b> Exclusive access to private terminals and FBO lounges with fast-track immigration and customs clearance.
+            </li>
+            <li>
+              <b>Meet &amp; Assist:</b> Personalized concierge support from arrival to departure, including baggage handling and expedited airport processes.
+            </li>
+            <li>
+              <b>Luxury Transfers:</b> Chauffeured ground transportation in premium vehicles, coordinated to your schedule.
+            </li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div>
+          <b>🧳 Tailored to You</b>
+          <ul className="list-disc ml-5 mt-1">
+            <li>
+              <b>Bespoke Experiences:</b> From birthday celebrations at 30,000 feet to business-class setups for airborne meetings, we tailor every flight to your occasion.
+            </li>
+            <li>
+              <b>Discretion &amp; Security:</b> Total confidentiality and secure services for celebrities, executives, and dignitaries.
+            </li>
+          </ul>
+        </div>
+        <div className="border-t border-cloud-dark my-2" />
+        <div className="italic text-skyblue-dark text-center mt-2">
+          Fly with us, where every detail is designed for distinction.
+        </div>
+      </div>
+    ),
   },
 ];
 
