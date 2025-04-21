@@ -12,25 +12,21 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-start bg-black overflow-hidden">
-      {/* 4K HD Gulfstream in clouds */}
-      <div className="relative w-full min-h-[65vh] flex items-end justify-center">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden">
+      {/* Gulfstream image as background with overlay */}
+      <div className="absolute inset-0 w-full h-full">
         <img
           src="/lovable-uploads/e7865d39-17d2-4276-ac35-df5d016c5a29.png"
           alt="Gulfstream Jet in the Clouds"
-          className="w-full object-cover object-center"
-          style={{
-            minHeight: "50vh",
-            maxHeight: "68vh",
-            aspectRatio: "16/7",
-          }}
+          className="w-full h-full object-cover object-center"
           draggable={false}
         />
-        {/* Subtle gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/5 to-black/60 pointer-events-none" />
+        {/* Darker overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       </div>
-      {/* Centered text content below image */}
-      <div className="relative z-10 w-full max-w-3xl mx-auto px-6 text-center pt-10 pb-20 flex flex-col items-center">
+      
+      {/* Centered content on top of the image */}
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-6 text-center flex flex-col items-center justify-center">
         <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg leading-tight">
           Where Every Journey <br className="hidden md:block" /> Feels First Class
         </h1>
@@ -51,4 +47,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
