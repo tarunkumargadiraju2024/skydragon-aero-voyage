@@ -27,20 +27,7 @@ const HeroSection = () => {
 
       {/* Centered content on top of the image */}
       <div className="relative z-10 w-full max-w-3xl mx-auto px-6 text-center flex flex-col items-center justify-center">
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg leading-tight">
-          Where Every Journey <br className="hidden md:block" /> Feels First Class
-        </h1>
-        <p className="text-lg md:text-2xl text-white/90 mb-10 drop-shadow-md">
-          Since 2017, SkyDragon Aero has redefined private aviation with a touch of elegance.
-        </p>
-        <Button
-          onClick={scrollToQuote}
-          size="lg"
-          className="bg-white text-brand-blue hover:bg-gold hover:text-white rounded-full group transition-all duration-300 shadow-lg px-8"
-        >
-          Request Your Jet Now
-          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-        </Button>
+        {/* Text and button removed as per user request */}
       </div>
     </section>
   );
