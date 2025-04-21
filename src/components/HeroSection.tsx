@@ -12,19 +12,25 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-black overflow-hidden">
-      {/* Background: 4K Global 8000 in clouds */}
-      <img
-        src="/lovable-uploads/3837fbe1-9d47-412f-b5db-626752b6ceb3.png"
-        alt="Global 8000 Jet in Clouds"
-        className="absolute inset-0 w-full h-full object-cover object-center z-0"
-        style={{ minHeight: "100vh" }}
-        draggable={false}
-      />
-      {/* Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 z-10" />
-      {/* Centered content */}
-      <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-3xl mx-auto px-6 text-center py-24">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-start bg-black overflow-hidden">
+      {/* 4K HD Gulfstream in clouds */}
+      <div className="relative w-full min-h-[65vh] flex items-end justify-center">
+        <img
+          src="/lovable-uploads/e7865d39-17d2-4276-ac35-df5d016c5a29.png"
+          alt="Gulfstream Jet in the Clouds"
+          className="w-full object-cover object-center"
+          style={{
+            minHeight: "50vh",
+            maxHeight: "68vh",
+            aspectRatio: "16/7",
+          }}
+          draggable={false}
+        />
+        {/* Subtle gradient overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/5 to-black/60 pointer-events-none" />
+      </div>
+      {/* Centered text content below image */}
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-6 text-center pt-10 pb-20 flex flex-col items-center">
         <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg leading-tight">
           Where Every Journey <br className="hidden md:block" /> Feels First Class
         </h1>
@@ -45,3 +51,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
