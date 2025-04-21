@@ -1,6 +1,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import React from "react";
 
 const HeroSection = () => {
   const scrollToQuote = () => {
@@ -12,16 +13,27 @@ const HeroSection = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with overlay gradient */}
+      {/* Background with video overlay, fallback to image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-skyblue/50 mix-blend-multiply"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center" 
-          style={{ 
-            backgroundImage: "url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80')",
-            filter: "brightness(0.8)"
-          }}
-        ></div>
+        {/* 4K loop video background, muted, faded with overlay gradient */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center absolute inset-0"
+          poster="/lovable-uploads/b597ec11-ba38-43e1-914c-02efd1f86f18.png"
+        >
+          <source src="/flight-loop.mp4" type="video/mp4" />
+          {/* Fallback image if video fails */}
+          <img
+            src="/lovable-uploads/b597ec11-ba38-43e1-914c-02efd1f86f18.png"
+            alt="Flight over clouds"
+            className="w-full h-full object-cover object-center"
+          />
+        </video>
+        {/* Gradient overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/70 to-skyblue/50 mix-blend-multiply"></div>
       </div>
       
       {/* Content */}

@@ -20,6 +20,30 @@ const directors = [
   }
 ];
 
+const engineeringContent = (
+  <div className="my-10 fade-in" style={{ opacity: 0.85 }}>
+    <h4 className="text-2xl font-semibold text-skyblue-dark mb-3">
+      Engineering, Our Expert Team: The Backbone of Reliable Maintenance
+    </h4>
+    <h5 className="text-lg font-semibold text-brand-blue mb-2">
+      Well-Experienced &amp; Nurtured Professionals
+    </h5>
+    <p className="text-gray-700/90 mb-4">
+      We take pride in our team of seasoned engineers and visionary leaders who bring decades of industry expertise to the table. Each member is carefully selected, thoroughly trained, and continuously nurtured to uphold the highest standards in aviation maintenance.
+    </p>
+    <ul className="list-disc list-inside text-gray-700/90 mb-4">
+      <li>Certified &amp; Skilled Engineers with hands-on expertise across multiple aircraft platforms.</li>
+      <li>Leadership with Vision, driving innovation and excellence in MRO services.</li>
+      <li>Continuous Training Culture to stay aligned with evolving technologies and global standards.</li>
+      <li>Client-Centric Approach ensuring tailored support for every maintenance need.</li>
+    </ul>
+    {/* Tagline */}
+    <div className="mt-6 text-brand-blue/90 italic text-center font-semibold">
+      Experience you can trust. Support you can count on.
+    </div>
+  </div>
+);
+
 const AboutSection = () => {
   return (
     <section id="about" className="section-padding sky-gradient">
@@ -50,6 +74,11 @@ const AboutSection = () => {
             <h3 className="text-2xl font-semibold text-center text-brand-blue mt-16 mb-12">
               Meet Our Leadership
             </h3>
+          </div>
+
+          {/* Engineering section, slightly faded */}
+          <div className="col-span-1 max-w-4xl mx-auto bg-white/80 rounded-2xl shadow-md px-8 py-6 mb-10" style={{ opacity: 0.875 }}>
+            {engineeringContent}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
