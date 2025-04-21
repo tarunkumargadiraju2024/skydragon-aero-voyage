@@ -12,7 +12,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative flex items-start justify-center w-full min-h-screen overflow-hidden bg-black pt-32" // Added pt-32 to push content down
+      className="relative flex items-start justify-center w-full min-h-screen overflow-hidden bg-black pt-[55px]" // Increased padding to push content further down
       style={{ minHeight: "100vh" }}
     >
       {/* Background image removed, so no img or overlay here */}
