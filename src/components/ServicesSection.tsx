@@ -59,46 +59,43 @@ const services = [
     title: "Aircraft Management",
     description: (
       <div className="text-left space-y-2">
-        <div>
-          Professional management of your aircraft, optimizing operations, maintenance, and financial performance.
-        </div>
-        <div className="mt-2 text-gray-700/90">
-          <ol className="list-decimal list-inside pl-4 space-y-2">
-            <li>
-              <b>Aircraft Acquisition &amp; Leasing</b><br />
-              <span className="text-sm text-gray-500">
-                <b>Aircraft Availability &amp; Condition:</b> Ensuring the aircraft is always ready for operation, well-maintained, and meets regulatory requirements.<br />
-                <b>Purchasing:</b> Evaluate the market, assess options (new or pre-owned), and negotiate terms.<br />
-                <b>Leasing:</b> Wet Lease (aircraft, crew, maintenance, insurance) or Dry Lease (just aircraft).<br />
-                <b>Financing:</b> Loans, bank financing, operating/capital leases.
-              </span>
-            </li>
-            <li>
-              <b>Scheduling</b><br />
-              <span className="text-sm text-gray-500">
-                Managing routes, crew, maintenance; optimizing flight planning and compliance.
-              </span>
-            </li>
-            <li>
-              <b>Charter Services</b><br />
-              <span className="text-sm text-gray-500">
-                Charter flexibility, tailored for client needs, regulatory compliance, competitive pricing.
-              </span>
-            </li>
-            <li>
-              <b>Onboard Services</b><br />
-              <span className="text-sm text-gray-500">
-                Certified crew, high-quality catering, premium service for passengers.
-              </span>
-            </li>
-            <li>
-              <b>Communication</b><br />
-              <span className="text-sm text-gray-500">
-                Real-time flight status updates, notifications for delays/changes, emergency communications.
-              </span>
-            </li>
-          </ol>
-        </div>
+        <ol className="list-decimal list-inside pl-4 space-y-3 text-gray-700/90">
+          <li>
+            <b>Aircraft Acquisition & Leasing</b>
+            <div className="text-sm text-gray-600">
+              <b>Aircraft Availability & Condition:</b> Ensuring the aircraft is always ready for operation, well-maintained, and meets regulatory requirements.<br />
+              <b>Purchasing:</b> Evaluate the market, assess options (new or pre-owned), and negotiate terms.<br />
+              <b>Leasing:</b> Wet Lease (aircraft, crew, maintenance, insurance) or Dry Lease (just aircraft).<br />
+              <b>Financing:</b> Loans, bank financing, operating/capital leases.
+            </div>
+          </li>
+          <li>
+            <b>Scheduling</b>
+            <div className="text-sm text-gray-600">
+              Operational Calendar Management: Scheduling flights involves coordinating variables such as flight routes, crew, maintenance, and weather.<br />
+              Flight Planning: Optimizing routes for efficiency and safety.<br />
+              Crew Scheduling and Maintenance Timelines are managed to ensure maximum readiness.
+            </div>
+          </li>
+          <li>
+            <b>Charter Services</b>
+            <div className="text-sm text-gray-600">
+              Flexible charter options, tailored services, regulatory compliance, and competitive pricing for private or corporate clients.
+            </div>
+          </li>
+          <li>
+            <b>Onboard Services</b>
+            <div className="text-sm text-gray-600">
+              Certified crew, high-quality catering, and outstanding customer service for an elevated in-flight experience.
+            </div>
+          </li>
+          <li>
+            <b>Communication</b>
+            <div className="text-sm text-gray-600">
+              Real-time flight status updates, timely notifications, and emergency communication to keep all parties informed and safe.
+            </div>
+          </li>
+        </ol>
       </div>
     ),
     icon: <Settings className="h-10 w-10 text-skyblue" />,
@@ -121,27 +118,24 @@ const ServicesSection = () => {
   return (
     <section id="services" className="section-padding sky-gradient">
       <div className="container mx-auto">
-        <h2 className="section-title text-brand-blue font-playfair">Our Services</h2>
+        <h2 className="section-title font-playfair text-brand-blue">Our Services</h2>
         <p className="section-subtitle font-sans">
           Comprehensive aviation solutions delivered with warmth and expertise.
         </p>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {services.map((service, index) => (
             <Card
               key={index}
               className={
-                "bg-white/90 backdrop-blur-md border-none shadow-lg hover-lift overflow-hidden group transition-all duration-300" +
-                (service.title === "Spare Parts Support" || service.title === "Aircraft Management" ? " ring-2 ring-skyblue/60" : "")
+                "bg-white/90 backdrop-blur-md border-none shadow-lg hover-lift overflow-hidden group transition-all duration-300 " +
+                (service.title === "Spare Parts Support" || service.title === "Aircraft Management" ? "ring-2 ring-skyblue/60" : "")
               }
             >
-              <CardContent className="p-6 flex flex-col items-center text-center min-h-[370px]">
-                <div className="rounded-full bg-cloud-light p-5 mb-5 group-hover:bg-skyblue/10 transition-colors">
+              <CardContent className="p-8 flex flex-col items-center text-center min-h-[370px] justify-between">
+                <div className="rounded-full bg-cloud-light p-6 mb-5 group-hover:bg-skyblue/10 transition-colors drop-shadow-2xl">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-brand-blue font-playfair mb-3">
-                  {service.title}
-                </h3>
+                <h3 className="text-xl font-semibold text-brand-blue font-playfair mb-4">{service.title}</h3>
                 <div className="text-gray-700 text-left w-full text-base font-sans">
                   {service.description}
                 </div>
