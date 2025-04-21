@@ -13,9 +13,19 @@ const HeroSection = () => {
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-      {/* Removed background image */}
+      {/* New homepage background image */}
+      <img
+        src="/lovable-uploads/29939d30-4866-4141-ab8d-76ee5217ae6d.png"
+        alt="SkyDragon Jet Over Mountains"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        style={{ minHeight: "100vh" }}
+        draggable={false}
+      />
+      {/* Overlay gradient for contrast */}
+      <div className="absolute inset-0 z-10 bg-black/40 pointer-events-none" />
+      {/* Content */}
       <div className="container relative z-20 flex flex-col items-center justify-center mx-auto px-6">
-        <div className="w-full text-center">
+        <div className="w-full max-w-4xl text-center">
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-shadow leading-tight drop-shadow-lg">
             Where Every Journey <br className="hidden md:block" /> Feels First Class
           </h1>
