@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
@@ -16,7 +15,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="overflow-x-hidden bg-black">
+    <main className="overflow-x-hidden">
       <Navigation />
       <HeroSection />
       <AboutSection />
