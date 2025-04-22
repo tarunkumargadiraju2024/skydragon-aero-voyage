@@ -41,32 +41,34 @@ const QuoteFormSection = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    
+
     try {
-      // Replace 'YOUR_WEBHOOK_URL' with your actual webhook URL from Zapier
-      const webhookUrl = "YOUR_WEBHOOK_URL";
-      
-      const response = await fetch(webhookUrl, {
+      // Call your Supabase Edge Function endpoint
+      const response = await fetch("https://dmfuweiqgthbmxhpqqur.functions.supabase.co/send-enquiry", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "no-cors", // Handle CORS issues
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...values,
-          timestamp: new Date().toISOString(),
-          source: window.location.origin
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          description: values.description
         }),
       });
 
-      setIsSubmitted(true);
-      toast({
-        title: "Quote request submitted",
-        description: "We'll be in touch with you shortly.",
-      });
-      form.reset();
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        toast({
+          title: "Quote request submitted",
+          description: "We'll be in touch with you shortly.",
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed to send enquiry.");
+      }
     } catch (error) {
-      console.error("Error sending form:", error);
+      console.error("Error sending enquiry:", error);
       toast({
         title: "Error",
         description: "There was a problem submitting your request. Please try again.",
