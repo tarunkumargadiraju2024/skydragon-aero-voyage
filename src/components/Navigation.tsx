@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -35,24 +34,8 @@ const Navigation = () => {
       )}
     >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo only, for all breakpoints - use white bg on transparent nav for visibility */}
-        <div className="flex items-center gap-2">
-          <img
-            src="/lovable-uploads/af7b43ee-5b45-46c7-9b04-0b9abd7cbfc2.png"
-            alt="SkyDragon Logo"
-            className={cn(
-              "h-12 w-auto",
-              isScrolled ? "" : "bg-white/80 rounded-md p-1 shadow-sm"
-            )}
-            style={{
-              maxHeight: 46,
-              maxWidth: 168,
-              objectFit: "contain",
-              background: isScrolled ? "transparent" : "rgba(255,255,255,0.90)",
-              borderRadius: 8,
-            }}
-          />
-        </div>
+        {/* Logo removed */}
+        <div></div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 items-center">
