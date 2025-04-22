@@ -9,7 +9,7 @@ const HeroSection = () => {
         alt="Gulfstream jets flying over water" 
         className="absolute inset-0 w-full h-full object-cover opacity-70"
       />
-      <div className="relative z-10 text-center text-white px-4 md:px-8 lg:px-16">
+      <div className="relative z-10 text-center text-white px-4 md:px-8 lg:px-16 mt-32">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
           Elevate Your Journey
         </h1>
