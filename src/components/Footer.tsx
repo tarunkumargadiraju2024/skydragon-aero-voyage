@@ -1,4 +1,3 @@
-
 import { Heart, Mail } from "lucide-react";
 
 const Footer = () => {
@@ -33,11 +32,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/20 text-center text-white/60 text-sm">
-          <p className="max-w-2xl mx-auto flex items-center justify-center gap-2 mt-1">
+        <div className="mt-8 pt-8 border-t border-white/20 flex justify-between items-center text-white/60 text-sm">
+          <div className="text-left">
+            <p>SKYDRAGON AERO SOLUTIONS PRIVATE LIMITED</p>
+            <p>SkyDragon Aero Pvt.Ltd</p>
+            <p>Elevating your journey since 2017</p>
+          </div>
+          <div className="text-right flex items-center gap-2">
             <Mail className="h-5 w-5 inline-block mr-2" />
             Email: ops@skydragonaero.com
-          </p>
+          </div>
         </div>
       </div>
     </footer>
@@ -45,4 +49,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
