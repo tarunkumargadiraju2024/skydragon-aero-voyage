@@ -1,7 +1,14 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 
 const HeroSection = () => {
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/lovable-uploads/197afe42-db1c-4829-b91a-1b4046d873fb.png';
+    img.onload = () => console.log('Image loaded successfully');
+    img.onerror = (error) => console.error('Image failed to load', error);
+  }, []);
+
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden">
       <div 
