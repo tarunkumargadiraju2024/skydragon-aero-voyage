@@ -32,12 +32,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/20 flex justify-between items-center text-white/60 text-sm">
-          <div className="text-left">
-            <p>SKYDRAGON AERO SOLUTIONS PRIVATE LIMITED</p>
-            <p>SkyDragon Aero Pvt.Ltd</p>
-            <p>Elevating your journey since 2017</p>
-          </div>
+        <div className="mt-8 pt-8 border-t border-white/20 flex justify-end items-center text-white/60 text-sm">
           <div className="text-right flex items-center gap-2">
             <Mail className="h-5 w-5 inline-block mr-2" />
             Email: ops@skydragonaero.com
