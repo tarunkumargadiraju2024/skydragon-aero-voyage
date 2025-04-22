@@ -20,11 +20,12 @@ const HeroSection = () => {
           draggable={false}
         />
       </div>
-      <div className="relative z-10 text-center text-white max-w-4xl px-4">
-        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">
-          Where Every Journey<br />Feels First Class
+      <div className="relative z-10 text-center max-w-4xl px-4">
+        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-[#1EAEDB] bg-clip-text">
+          Where Every Journey<br />
+          <span className="text-white/70">Feels First Class</span>
         </h1>
-        <p className="text-lg md:text-xl mb-8 text-white/90">
+        <p className="text-lg md:text-xl mb-8 text-[#33C3F0]">
           Since 2017, SkyDragon Aero has redefined private aviation with a touch of elegance.
         </p>
         <Button
