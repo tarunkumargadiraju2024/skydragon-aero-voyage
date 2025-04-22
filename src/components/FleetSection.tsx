@@ -59,6 +59,8 @@ const fleetCategories = [
         range: "2,100 nm",
         description: "Superior performance with remarkable cabin comfort.",
         images: [
+          "/lovable-uploads/6c6fc829-a5a1-476a-a96d-b53f823c34df.png",
+          "/lovable-uploads/c7be74e1-800b-44e8-abea-05707cee21d0.png",
           "/lovable-uploads/xls-image-1.png",
           "/lovable-uploads/xls-image-2.png",
           "/lovable-uploads/xls-image-3.png",

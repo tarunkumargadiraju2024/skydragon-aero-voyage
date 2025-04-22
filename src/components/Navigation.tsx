@@ -1,9 +1,12 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -33,7 +36,10 @@ const Navigation = () => {
       )}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center gap-2">
+        <div 
+          className="flex items-center gap-2 cursor-pointer" 
+          onClick={() => navigate('/')}
+        >
           <img
             src="/lovable-uploads/cbcbfb79-30e8-46a8-84fc-79750f7d0abd.png"
             alt="SkyDragon Logo"
