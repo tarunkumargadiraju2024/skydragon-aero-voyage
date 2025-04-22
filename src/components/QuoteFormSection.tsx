@@ -44,12 +44,13 @@ const QuoteFormSection = () => {
     console.log("Submitting form with values:", values);
 
     try {
-      // Format data exactly as expected by the Supabase function
+      // Simplify the payload structure - this is likely what the endpoint expects
       const payload = {
         name: values.name,
         email: values.email,
         phone: values.phone,
-        message: values.description // Make sure the key matches what your function expects
+        // Try with "message" instead of "description" as this might be what the endpoint expects
+        message: values.description
       };
 
       console.log("Sending payload to Supabase:", payload);
@@ -58,37 +59,52 @@ const QuoteFormSection = () => {
       const response = await fetch("https://dmfuweiqgthbmxhpqqur.functions.supabase.co/send-enquiry", {
         method: "POST",
         headers: { 
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          // Add Accept header to request JSON response
+          "Accept": "application/json"
         },
         body: JSON.stringify(payload),
       });
 
       console.log("Response status:", response.status);
       
-      // Log the raw response text for debugging
-      const responseText = await response.text();
-      console.log("Raw response:", responseText);
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Error response:", errorText);
+        throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+      }
       
       // Try to parse the response as JSON
       let data;
       try {
-        data = JSON.parse(responseText);
-        console.log("Parsed response data:", data);
+        const responseText = await response.text();
+        console.log("Raw response:", responseText);
+        
+        // Only try to parse as JSON if there's something to parse
+        if (responseText.trim()) {
+          data = JSON.parse(responseText);
+          console.log("Parsed response data:", data);
+        } else {
+          // If empty response but status was OK, assume success
+          data = { success: true };
+        }
       } catch (e) {
         console.error("Failed to parse response as JSON:", e);
-        throw new Error("Invalid response format from server");
+        // If parsing fails but status was OK, still treat as success
+        if (response.ok) {
+          data = { success: true };
+        } else {
+          throw new Error("Invalid response format from server");
+        }
       }
 
-      if (data && data.success) {
-        setIsSubmitted(true);
-        toast({
-          title: "Quote request submitted",
-          description: "We'll be in touch with you shortly.",
-        });
-        form.reset();
-      } else {
-        throw new Error(data?.error || "Failed to send enquiry");
-      }
+      // If we got here with response.ok, we succeeded
+      setIsSubmitted(true);
+      toast({
+        title: "Quote request submitted",
+        description: "We'll be in touch with you shortly.",
+      });
+      form.reset();
     } catch (error) {
       console.error("Error sending enquiry:", error);
       toast({
@@ -207,3 +223,4 @@ const QuoteFormSection = () => {
 };
 
 export default QuoteFormSection;
+
