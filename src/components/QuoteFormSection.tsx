@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -28,6 +27,7 @@ import {
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
+import FleetCategorySelector from "./FleetCategorySelector";
 
 const fleetOptions = [
   {
@@ -63,6 +63,9 @@ const formSchema = z.object({
 const QuoteFormSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [fleetCategories, setFleetCategories] = useState<string[]>([]);
+  const [fleetModels, setFleetModels] = useState<Record<string, string>>({});
+  const [fleetError, setFleetError] = useState<string | undefined>();
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -77,6 +80,19 @@ const QuoteFormSection = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setFleetError(undefined);
+
+    if (!fleetCategories.length) {
+      setFleetError("Please select at least one fleet option.");
+      return;
+    }
+    for (const cat of fleetCategories) {
+      if (!fleetModels[cat]) {
+        setFleetError(`Please select a jet for ${cat.charAt(0).toUpperCase() + cat.slice(1)} Jet.`);
+        return;
+      }
+    }
+
     setIsSubmitting(true);
     console.log("Submitting form with values:", values);
 
@@ -86,10 +102,11 @@ const QuoteFormSection = () => {
         email: values.email,
         phone: values.phone,
         message: values.description,
-        fleetPreferences: values.fleetPreferences,
+        fleetPreferences: fleetCategories.map(cat => ({
+          category: cat,
+          jet: fleetModels[cat]
+        })),
       };
-
-      console.log("Sending payload to Supabase:", payload);
 
       const response = await fetch("https://dmfuweiqgthbmxhpqqur.functions.supabase.co/send-enquiry", {
         method: "POST",
@@ -108,7 +125,6 @@ const QuoteFormSection = () => {
         throw new Error(`Request failed with status ${response.status}: ${errorText}`);
       }
 
-      // Try to parse the response as JSON
       let data;
       try {
         const responseText = await response.text();
@@ -135,6 +151,8 @@ const QuoteFormSection = () => {
         description: "We'll be in touch with you shortly.",
       });
       form.reset();
+      setFleetCategories([]);
+      setFleetModels({});
     } catch (error) {
       console.error("Error sending enquiry:", error);
       toast({
@@ -147,13 +165,8 @@ const QuoteFormSection = () => {
     }
   }
 
-  // Render the custom multi-select popover here
-  const fleetSelections = form.watch("fleetPreferences");
-  const isFleetOpen = useState(false);
-
   return (
     <section id="quote" className="section-padding relative overflow-hidden bg-gradient-to-br from-white via-cloud-light to-skyblue/5">
-      {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-skyblue/10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/10 rounded-full translate-x-1/3 translate-y-1/3"></div>
 
@@ -182,71 +195,13 @@ const QuoteFormSection = () => {
           ) : (
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                {/* Fleet multi-select starts here */}
-                <FormField
-                  control={form.control}
-                  name="fleetPreferences"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Fleet Preferences</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button
-                            variant="outline"
-                            role="combobox"
-                            className={cn(
-                              "w-full justify-between flex items-center text-left bg-white",
-                              !field.value?.length && "text-muted-foreground"
-                            )}
-                          >
-                            {field.value && field.value.length > 0
-                              ? fleetOptions
-                                  .filter(opt => field.value.includes(opt.value))
-                                  .map(opt => opt.label)
-                                  .join(", ")
-                              : "Select fleet type(s)"}
-                          </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-full p-0 z-50">
-                          <div className="p-2 space-y-1">
-                            {fleetOptions.map((option) => (
-                              <div
-                                key={option.value}
-                                className={cn(
-                                  "flex flex-col lg:flex-row lg:items-center px-2 py-2 hover:bg-skyblue/10 rounded cursor-pointer transition",
-                                  field.value.includes(option.value) && "bg-skyblue/10"
-                                )}
-                                onClick={() => {
-                                  if (field.value.includes(option.value)) {
-                                    field.onChange(field.value.filter((v: string) => v !== option.value));
-                                  } else {
-                                    field.onChange([...field.value, option.value]);
-                                  }
-                                }}
-                              >
-                                <div className="flex items-center">
-                                  <Checkbox
-                                    checked={field.value.includes(option.value)}
-                                    tabIndex={-1}
-                                    aria-label={option.label}
-                                    className="mr-3"
-                                    readOnly
-                                  />
-                                  <div>
-                                    <span className="font-medium">{option.label}</span>
-                                  </div>
-                                </div>
-                                <span className="block text-xs text-muted-foreground ml-8 mt-1 lg:mt-0 lg:ml-4 max-w-xs">{option.details}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </PopoverContent>
-                      </Popover>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                <FleetCategorySelector
+                  selectedCategories={fleetCategories}
+                  setSelectedCategories={setFleetCategories}
+                  selectedModels={fleetModels}
+                  setSelectedModels={setFleetModels}
+                  error={fleetError}
                 />
-                {/* Name, Contact, Description fields as before */}
                 <FormField
                   control={form.control}
                   name="name"
