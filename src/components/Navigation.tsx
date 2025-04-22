@@ -35,7 +35,7 @@ const Navigation = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center gap-2">
           <img
-            src="/lovable-uploads/0bccb392-4474-4019-8e79-4630360aa1a8.png"
+            src="/lovable-uploads/cbcbfb79-30e8-46a8-84fc-79750f7d0abd.png"
             alt="SkyDragon Logo"
             className={cn(
               "h-12 w-auto",
@@ -48,6 +48,10 @@ const Navigation = () => {
               borderRadius: 8,
             }}
           />
+          <h3 className="font-bold text-xl">
+            <span className="text-[#33C3F0]">Sky</span>
+            <span className="text-brand-red">Dragon</span>
+          </h3>
         </div>
 
         <div className="hidden md:flex space-x-6 items-center">
