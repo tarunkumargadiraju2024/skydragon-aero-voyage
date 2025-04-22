@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue, SelectLabel, SelectGroup } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
@@ -145,15 +145,24 @@ export default function FleetCategorySelector({
 }: Props) {
   // Clean up selected models if user removes a category
   useEffect(() => {
-    setSelectedModels(models =>
-      Object.fromEntries(
-        Object.entries(models).filter(([key]) =>
-          selectedCategories.includes(key)
-        )
+    const filteredModels = Object.fromEntries(
+      Object.entries(selectedModels).filter(([key]) =>
+        selectedCategories.includes(key)
       )
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedCategories.join(",")]);
+    
+    if (JSON.stringify(filteredModels) !== JSON.stringify(selectedModels)) {
+      setSelectedModels(filteredModels);
+    }
+  }, [selectedCategories, selectedModels, setSelectedModels]);
+
+  const handleCategoryClick = (categoryValue: string) => {
+    if (selectedCategories.includes(categoryValue)) {
+      setSelectedCategories(selectedCategories.filter(v => v !== categoryValue));
+    } else {
+      setSelectedCategories([...selectedCategories, categoryValue]);
+    }
+  };
 
   return (
     <div>
@@ -166,17 +175,12 @@ export default function FleetCategorySelector({
               "flex flex-col lg:flex-row lg:items-center px-2 py-2 hover:bg-skyblue/10 rounded cursor-pointer transition",
               selectedCategories.includes(option.value) && "bg-skyblue/10"
             )}
-            onClick={() => {
-              if (selectedCategories.includes(option.value)) {
-                setSelectedCategories(selectedCategories.filter(v => v !== option.value));
-              } else {
-                setSelectedCategories([...selectedCategories, option.value]);
-              }
-            }}
+            onClick={() => handleCategoryClick(option.value)}
           >
             <div className="flex items-center">
               <Checkbox
                 checked={selectedCategories.includes(option.value)}
+                onCheckedChange={() => {}} // Empty handler to avoid double state updates
                 tabIndex={-1}
                 aria-label={option.label}
                 className="mr-3"
@@ -198,7 +202,10 @@ export default function FleetCategorySelector({
               <label className="block text-sm font-medium mb-2">Select {category.label}</label>
               <Select
                 value={selectedModels[catValue] || ""}
-                onValueChange={val => setSelectedModels({ ...selectedModels, [catValue]: val })}
+                onValueChange={val => {
+                  const updatedModels = { ...selectedModels, [catValue]: val };
+                  setSelectedModels(updatedModels);
+                }}
               >
                 <SelectTrigger className="w-full bg-white">
                   <SelectValue placeholder={`Select a ${category.label}`} />
