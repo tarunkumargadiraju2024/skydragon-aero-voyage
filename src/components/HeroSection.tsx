@@ -14,19 +14,19 @@ const HeroSection = () => {
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
         <img
-          src="/lovable-uploads/d7ac2a04-8d65-4535-96fd-6845f52253f3.png"
-          alt="Private jet flying in the sky"
+          src="/lovable-uploads/a65110eb-4615-4d94-a681-ffc3ae7b2ce8.png"
+          alt="Two private jets flying over ocean"
           className="w-full h-full object-cover object-center"
           draggable={false}
         />
       </div>
-      <div className="relative z-10 text-center max-w-4xl px-4">
-        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-[#1EAEDB] bg-clip-text">
+      <div className="relative z-10 text-center max-w-4xl px-4 mt-auto mb-24">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 text-white">
           Where Every Journey<br />
-          <span className="text-white/70">Feels First Class</span>
+          Feels First Class
         </h1>
-        <p className="text-lg md:text-xl mb-8 text-[#33C3F0]">
-          Since 2017, SkyDragon Aero has redefined private aviation with a touch of elegance.
+        <p className="text-lg md:text-2xl mb-8 text-white/80 font-light">
+          Since 2017, SkyDragon Aero redefined private aviation
         </p>
         <Button
           onClick={scrollToQuote}
