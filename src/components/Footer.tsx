@@ -1,3 +1,4 @@
+
 import { Heart, Mail } from "lucide-react";
 
 const Footer = () => {
