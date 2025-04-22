@@ -32,7 +32,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/20 flex justify-end items-center text-white/60 text-sm">
+        <div className="mt-8 pt-8 border-t border-white/20 flex flex-col items-center text-white/60 text-sm">
+          <div className="mb-4 text-center">
+            <h3 className="font-bold text-xl mb-2">
+              <span className="text-[#0068C1]">Sky</span>
+              <span className="text-brand-red">Dragon</span> Aero Group
+            </h3>
+            <p className="text-white/70">SKYDRAGON AERO SOLUTIONS PRIVATE LIMITED</p>
+            <p className="text-white/70">Elevating your journey since 2017</p>
+          </div>
+          
           <div className="text-right flex items-center gap-2">
             <Mail className="h-5 w-5 inline-block mr-2" />
             Email: ops@skydragonaero.com
