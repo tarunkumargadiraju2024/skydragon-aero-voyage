@@ -41,23 +41,45 @@ const QuoteFormSection = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+    console.log("Submitting form with values:", values);
 
     try {
+      // Format data exactly as expected by the Supabase function
+      const payload = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        message: values.description // Make sure the key matches what your function expects
+      };
+
+      console.log("Sending payload to Supabase:", payload);
+
       // Call your Supabase Edge Function endpoint
       const response = await fetch("https://dmfuweiqgthbmxhpqqur.functions.supabase.co/send-enquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: values.name,
-          email: values.email,
-          phone: values.phone,
-          description: values.description
-        }),
+        headers: { 
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
+      console.log("Response status:", response.status);
+      
+      // Log the raw response text for debugging
+      const responseText = await response.text();
+      console.log("Raw response:", responseText);
+      
+      // Try to parse the response as JSON
+      let data;
+      try {
+        data = JSON.parse(responseText);
+        console.log("Parsed response data:", data);
+      } catch (e) {
+        console.error("Failed to parse response as JSON:", e);
+        throw new Error("Invalid response format from server");
+      }
 
-      if (data.success) {
+      if (data && data.success) {
         setIsSubmitted(true);
         toast({
           title: "Quote request submitted",
@@ -65,13 +87,13 @@ const QuoteFormSection = () => {
         });
         form.reset();
       } else {
-        throw new Error("Failed to send enquiry.");
+        throw new Error(data?.error || "Failed to send enquiry");
       }
     } catch (error) {
       console.error("Error sending enquiry:", error);
       toast({
         title: "Error",
-        description: "There was a problem submitting your request. Please try again.",
+        description: `There was a problem submitting your request: ${error instanceof Error ? error.message : "Unknown error"}`,
         variant: "destructive",
       });
     } finally {
