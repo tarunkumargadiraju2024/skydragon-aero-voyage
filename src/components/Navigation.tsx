@@ -7,7 +7,6 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Track scrolling for navbar styling
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -34,10 +33,23 @@ const Navigation = () => {
       )}
     >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo removed */}
-        <div></div>
+        <div className="flex items-center gap-2">
+          <img
+            src="/lovable-uploads/0bccb392-4474-4019-8e79-4630360aa1a8.png"
+            alt="SkyDragon Logo"
+            className={cn(
+              "h-12 w-auto",
+              isScrolled ? "" : "bg-black/90 rounded-md p-1"
+            )}
+            style={{
+              maxHeight: 46,
+              maxWidth: 168,
+              objectFit: "contain",
+              borderRadius: 8,
+            }}
+          />
+        </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 items-center">
           {["about", "fleet", "services", "quote", "contact"].map((item) => (
             <button
@@ -60,7 +72,6 @@ const Navigation = () => {
           </Button>
         </div>
 
-        {/* Mobile menu button */}
         <button
           className="md:hidden text-primary-foreground z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -72,7 +83,6 @@ const Navigation = () => {
           )}
         </button>
 
-        {/* Mobile Navigation Overlay */}
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
             {["about", "fleet", "services", "quote", "contact"].map((item) => (
