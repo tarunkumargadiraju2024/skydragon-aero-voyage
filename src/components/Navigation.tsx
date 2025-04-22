@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,11 +40,11 @@ const Navigation = () => {
           onClick={() => navigate('/')}
         >
           <img
-            src="/lovable-uploads/cbcbfb79-30e8-46a8-84fc-79750f7d0abd.png"
+            src="/lovable-uploads/fbfb76e4-7ed4-4d93-b84d-4a3103be012f.png"
             alt="SkyDragon Logo"
             className={cn(
               "h-12 w-auto",
-              isScrolled ? "" : "bg-black/90 rounded-md p-1"
+              isScrolled ? "" : "rounded-md p-1"
             )}
             style={{
               maxHeight: 46,
@@ -54,10 +53,6 @@ const Navigation = () => {
               borderRadius: 8,
             }}
           />
-          <h3 className="font-bold text-xl">
-            <span className="text-[#33C3F0]">Sky</span>
-            <span className="text-brand-red">Dragon</span>
-          </h3>
         </div>
 
         <div className="hidden md:flex space-x-6 items-center">
