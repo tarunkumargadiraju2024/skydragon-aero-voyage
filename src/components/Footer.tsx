@@ -1,5 +1,5 @@
 
-import { Heart, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,9 +24,6 @@ const Footer = () => {
           </div>
           
           <div className="text-center md:text-right">
-            <p className="text-white/70 text-sm flex items-center justify-center md:justify-end">
-              Crafted with <Heart className="h-4 w-4 text-red-400 mx-1 inline" /> for exceptional journeys
-            </p>
             <p className="text-white/70 text-sm mt-1">
               &copy; {currentYear} SkyDragon Aero Pvt.Ltd. All rights reserved.
             </p>

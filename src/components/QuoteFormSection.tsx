@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,50 +16,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue,
-  SelectLabel,
-  SelectGroup,
-} from "@/components/ui/select";
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
-import { Checkbox } from "@/components/ui/checkbox";
-import { cn } from "@/lib/utils";
 import FleetCategorySelector from "./FleetCategorySelector";
-
-const fleetOptions = [
-  {
-    value: "light",
-    label: "Light Jet",
-    details: "6 passengers, ~1,700 nm range. Perfect for short trips.",
-  },
-  {
-    value: "mid",
-    label: "Mid Jet",
-    details: "6-8 passengers, ~2,000-2,900 nm range. Great comfort & regional flights.",
-  },
-  {
-    value: "supermid",
-    label: "Super Mid Jet",
-    details: "7-13 passengers, ~3,000-4,000 nm range. Spacious cabins & superior range.",
-  },
-  {
-    value: "large",
-    label: "Large Jet",
-    details: "13-18 passengers, ~6,700-7,700 nm range. Ultimate luxury for long-haul.",
-  },
-];
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Please enter your name" }),
   email: z.string().email({ message: "Please enter a valid email" }),
   phone: z.string().min(10, { message: "Please enter a valid phone number" }),
   description: z.string().min(10, { message: "Please provide some details about your flight" }),
-  fleetCategory: z.string().min(1, { message: "Please select a fleet category." }),
-  fleetModel: z.string().min(1, { message: "Please select a jet model." }),
 });
 
 const QuoteFormSection = () => {
@@ -76,8 +40,6 @@ const QuoteFormSection = () => {
       email: "",
       phone: "",
       description: "",
-      fleetCategory: "",
-      fleetModel: "",
     },
   });
 
@@ -102,12 +64,8 @@ const QuoteFormSection = () => {
         email: values.email,
         phone: values.phone,
         message: values.description,
-        fleetPreferences: [
-          {
-            category: fleetCategory,
-            jet: fleetModel,
-          }
-        ],
+        fleetCategory: fleetCategory,
+        fleetModel: fleetModel
       };
 
       const response = await fetch("https://dmfuweiqgthbmxhpqqur.functions.supabase.co/send-enquiry", {
