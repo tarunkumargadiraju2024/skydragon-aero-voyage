@@ -57,14 +57,15 @@ const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email" }),
   phone: z.string().min(10, { message: "Please enter a valid phone number" }),
   description: z.string().min(10, { message: "Please provide some details about your flight" }),
-  fleetPreferences: z.array(z.string()).min(1, { message: "Please select at least one fleet option." }),
+  fleetCategory: z.string().min(1, { message: "Please select a fleet category." }),
+  fleetModel: z.string().min(1, { message: "Please select a jet model." }),
 });
 
 const QuoteFormSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [fleetCategories, setFleetCategories] = useState<string[]>([]);
-  const [fleetModels, setFleetModels] = useState<Record<string, string>>({});
+  const [fleetCategory, setFleetCategory] = useState<string>("");
+  const [fleetModel, setFleetModel] = useState<string>("");
   const [fleetError, setFleetError] = useState<string | undefined>();
   const { toast } = useToast();
 
@@ -75,22 +76,21 @@ const QuoteFormSection = () => {
       email: "",
       phone: "",
       description: "",
-      fleetPreferences: [],
+      fleetCategory: "",
+      fleetModel: "",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setFleetError(undefined);
 
-    if (!fleetCategories.length) {
-      setFleetError("Please select at least one fleet option.");
+    if (!fleetCategory) {
+      setFleetError("Please select a fleet category.");
       return;
     }
-    for (const cat of fleetCategories) {
-      if (!fleetModels[cat]) {
-        setFleetError(`Please select a jet for ${cat.charAt(0).toUpperCase() + cat.slice(1)} Jet.`);
-        return;
-      }
+    if (!fleetModel) {
+      setFleetError("Please select a jet model.");
+      return;
     }
 
     setIsSubmitting(true);
@@ -102,10 +102,12 @@ const QuoteFormSection = () => {
         email: values.email,
         phone: values.phone,
         message: values.description,
-        fleetPreferences: fleetCategories.map(cat => ({
-          category: cat,
-          jet: fleetModels[cat]
-        })),
+        fleetPreferences: [
+          {
+            category: fleetCategory,
+            jet: fleetModel,
+          }
+        ],
       };
 
       const response = await fetch("https://dmfuweiqgthbmxhpqqur.functions.supabase.co/send-enquiry", {
@@ -151,8 +153,8 @@ const QuoteFormSection = () => {
         description: "We'll be in touch with you shortly.",
       });
       form.reset();
-      setFleetCategories([]);
-      setFleetModels({});
+      setFleetCategory("");
+      setFleetModel("");
     } catch (error) {
       console.error("Error sending enquiry:", error);
       toast({
@@ -196,10 +198,10 @@ const QuoteFormSection = () => {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FleetCategorySelector
-                  selectedCategories={fleetCategories}
-                  setSelectedCategories={setFleetCategories}
-                  selectedModels={fleetModels}
-                  setSelectedModels={setFleetModels}
+                  selectedCategory={fleetCategory}
+                  setSelectedCategory={setFleetCategory}
+                  selectedModel={fleetModel}
+                  setSelectedModel={setFleetModel}
                   error={fleetError}
                 />
                 <FormField

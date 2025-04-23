@@ -1,7 +1,14 @@
 
-import React, { useEffect } from "react";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue, SelectLabel, SelectGroup } from "@/components/ui/select";
+import React from "react";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+  SelectLabel,
+  SelectGroup,
+} from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
 type FleetModel = {
@@ -129,106 +136,79 @@ const FLEET: FleetCategory[] = [
 ];
 
 type Props = {
-  selectedCategories: string[];
-  setSelectedCategories: (categories: string[]) => void;
-  selectedModels: Record<string, string>; // key: category, value: jet name
-  setSelectedModels: (models: Record<string, string>) => void;
+  selectedCategory: string;
+  setSelectedCategory: (category: string) => void;
+  selectedModel: string;
+  setSelectedModel: (model: string) => void;
   error?: string;
 };
 
 export default function FleetCategorySelector({
-  selectedCategories,
-  setSelectedCategories,
-  selectedModels,
-  setSelectedModels,
+  selectedCategory,
+  setSelectedCategory,
+  selectedModel,
+  setSelectedModel,
   error,
 }: Props) {
-  // Clean up selected models if user removes a category
-  useEffect(() => {
-    const filteredModels = Object.fromEntries(
-      Object.entries(selectedModels).filter(([key]) =>
-        selectedCategories.includes(key)
-      )
-    );
-    
-    if (JSON.stringify(filteredModels) !== JSON.stringify(selectedModels)) {
-      setSelectedModels(filteredModels);
-    }
-  }, [selectedCategories, selectedModels, setSelectedModels]);
-
-  const handleCategoryClick = (categoryValue: string) => {
-    if (selectedCategories.includes(categoryValue)) {
-      setSelectedCategories(selectedCategories.filter(v => v !== categoryValue));
-    } else {
-      setSelectedCategories([...selectedCategories, categoryValue]);
-    }
-  };
+  // Get the currently selected category object
+  const category = FLEET.find((c) => c.value === selectedCategory);
 
   return (
     <div>
-      <label className="font-medium block mb-1">Fleet Preferences</label>
-      <div className={cn("p-2 space-y-1 bg-white rounded border", error && "border-destructive")}>
-        {FLEET.map(option => (
-          <div
-            key={option.value}
-            className={cn(
-              "flex flex-col lg:flex-row lg:items-center px-2 py-2 hover:bg-skyblue/10 rounded cursor-pointer transition",
-              selectedCategories.includes(option.value) && "bg-skyblue/10"
-            )}
-            onClick={() => handleCategoryClick(option.value)}
+      <label className="font-medium block mb-1">Select Fleet Category</label>
+      <Select
+        value={selectedCategory}
+        onValueChange={(val) => {
+          setSelectedCategory(val);
+          setSelectedModel(""); // clear model when category changes
+        }}
+      >
+        <SelectTrigger className={cn("w-full bg-white", error && "border-destructive")}>
+          <SelectValue placeholder="Choose Jet Category" />
+        </SelectTrigger>
+        <SelectContent className="z-[99] bg-white">
+          <SelectGroup>
+            <SelectLabel>Fleet Categories</SelectLabel>
+            {FLEET.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                <span className="font-semibold">{option.label}</span>
+                <div className="text-xs text-muted-foreground">
+                  {option.models.map((m) => m.name).join(", ")} ({option.models.length} options)
+                </div>
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+      {/* Model selection for chosen category */}
+      {selectedCategory && category && (
+        <div className="mt-4">
+          <label className="block text-sm font-medium mb-2">Select Jet Model</label>
+          <Select
+            value={selectedModel}
+            onValueChange={(val) => setSelectedModel(val)}
           >
-            <div className="flex items-center">
-              <Checkbox
-                checked={selectedCategories.includes(option.value)}
-                onCheckedChange={() => {}} // Empty handler to avoid double state updates
-                tabIndex={-1}
-                aria-label={option.label}
-                className="mr-3"
-              />
-              <span className="font-medium">{option.label}</span>
-            </div>
-            <span className="block text-xs text-muted-foreground ml-8 mt-1 lg:mt-0 lg:ml-4 max-w-xs">{option.models.map(m => m.name).join(", ")} ({option.models.length} options)</span>
-          </div>
-        ))}
-      </div>
+            <SelectTrigger className="w-full bg-white">
+              <SelectValue placeholder={`Select a ${category.label}`} />
+            </SelectTrigger>
+            <SelectContent className="z-[99] bg-white">
+              <SelectGroup>
+                <SelectLabel>{category.label} Options</SelectLabel>
+                {category.models.map((model) => (
+                  <SelectItem key={model.name} value={model.name}>
+                    <span className="font-semibold">{model.name}</span>
+                    <div className="text-xs text-muted-foreground">{model.description}</div>
+                    <div className="text-xs text-skyblue-dark">
+                      {model.passengers} pax • {model.range} range
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      )}
       {error && <div className="mt-1 text-sm font-medium text-destructive">{error}</div>}
-      {/* For each selected category, show select */}
-      <div className="mt-4 space-y-4">
-        {selectedCategories.map(catValue => {
-          const category = FLEET.find(f => f.value === catValue);
-          if (!category) return null;
-          return (
-            <div key={catValue}>
-              <label className="block text-sm font-medium mb-2">Select {category.label}</label>
-              <Select
-                value={selectedModels[catValue] || ""}
-                onValueChange={val => {
-                  const updatedModels = { ...selectedModels, [catValue]: val };
-                  setSelectedModels(updatedModels);
-                }}
-              >
-                <SelectTrigger className="w-full bg-white">
-                  <SelectValue placeholder={`Select a ${category.label}`} />
-                </SelectTrigger>
-                <SelectContent className="z-[99] bg-white">
-                  <SelectGroup>
-                    <SelectLabel>{category.label} Options</SelectLabel>
-                    {category.models.map(model => (
-                      <SelectItem key={model.name} value={model.name}>
-                        <span className="font-semibold">{model.name}</span>
-                        <div className="text-xs text-muted-foreground">{model.description}</div>
-                        <div className="text-xs text-skyblue-dark">
-                          {model.passengers} pax • {model.range} range
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 }
