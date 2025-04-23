@@ -59,14 +59,19 @@ const QuoteFormSection = () => {
     console.log("Submitting form with values:", values);
 
     try {
+      // Create detailed payload to ensure fleet model data is sent correctly
       const payload = {
         name: values.name,
         email: values.email,
         phone: values.phone,
         message: values.description,
         fleetCategory: fleetCategory,
-        fleetModel: fleetModel
+        fleetModel: fleetModel,
+        // Add a combined field for easier email reading
+        fleetDetails: `Category: ${fleetCategory}, Model: ${fleetModel}`
       };
+
+      console.log("Sending payload:", payload);
 
       const response = await fetch("https://dmfuweiqgthbmxhpqqur.functions.supabase.co/send-enquiry", {
         method: "POST",

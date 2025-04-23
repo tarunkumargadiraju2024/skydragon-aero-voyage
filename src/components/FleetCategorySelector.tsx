@@ -171,10 +171,7 @@ export default function FleetCategorySelector({
             <SelectLabel>Fleet Categories</SelectLabel>
             {FLEET.map((option) => (
               <SelectItem key={option.value} value={option.value}>
-                <span className="font-semibold">{option.label}</span>
-                <div className="text-xs text-muted-foreground">
-                  {option.models.map((m) => m.name).join(", ")} ({option.models.length} options)
-                </div>
+                {option.label}
               </SelectItem>
             ))}
           </SelectGroup>
