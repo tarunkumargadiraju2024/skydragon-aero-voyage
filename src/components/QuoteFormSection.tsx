@@ -59,16 +59,26 @@ const QuoteFormSection = () => {
     console.log("Submitting form with values:", values);
 
     try {
-      // Create detailed payload to ensure fleet model data is sent correctly
+      // Get the category label instead of value for better readability in email
+      const categoryMap: Record<string, string> = {
+        "light": "Light Jet",
+        "mid": "Mid Jet",
+        "supermid": "Super Mid Jet",
+        "large": "Large Jet"
+      };
+      
+      const categoryLabel = categoryMap[fleetCategory] || fleetCategory;
+      
+      // Create detailed payload with properly formatted fleet information
       const payload = {
         name: values.name,
         email: values.email,
         phone: values.phone,
         message: values.description,
-        fleetCategory: fleetCategory,
+        fleetCategory: categoryLabel,
         fleetModel: fleetModel,
-        // Add a combined field for easier email reading
-        fleetDetails: `Category: ${fleetCategory}, Model: ${fleetModel}`
+        // Format the fleet details clearly for the email
+        fleetDetails: `Fleet Category: ${categoryLabel}\nJet Model: ${fleetModel}`
       };
 
       console.log("Sending payload:", payload);
